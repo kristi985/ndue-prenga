@@ -1,0 +1,53 @@
+<svg width="200" height="64" viewBox="0 0 200 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="markGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4d3419"/>
+      <stop offset="1" stop-color="#8a6238"/>
+    </linearGradient>
+    <linearGradient id="markGradLight" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d4b894"/>
+      <stop offset="1" stop-color="#ad8254"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ========== LOGO MARK (ikona) ========== -->
+  <g transform="translate(0,0)">
+    <!-- Sfondi me rrumbullakosje -->
+    <rect width="64" height="64" rx="16" fill="url(#markGrad)"/>
+
+    <!-- Tekstura druri (rreshta horizontalë të hollë) -->
+    <g opacity="0.18" stroke="#fff" stroke-width="0.6">
+      <line x1="8" y1="18" x2="56" y2="18"/>
+      <line x1="8" y1="26" x2="56" y2="26"/>
+      <line x1="8" y1="34" x2="56" y2="34"/>
+      <line x1="8" y1="42" x2="56" y2="42"/>
+      <line x1="8" y1="50" x2="56" y2="50"/>
+    </g>
+
+    <!-- Stilizim i një pirgu dërrasash / crown form -->
+    <g>
+      <!-- Dërrasa e poshtme (më e gjërë) -->
+      <rect x="14" y="38" width="36" height="9" rx="1.5" fill="#d4b894"/>
+      <!-- Dërrasa e mesme -->
+      <rect x="17" y="28" width="30" height="9" rx="1.5" fill="#ead9c0"/>
+      <!-- Dërrasa e sipërme (më e ngushtë) -->
+      <rect x="21" y="18" width="22" height="9" rx="1.5" fill="#f5ecdf"/>
+    </g>
+
+    <!-- Theksi ambër: vija portokalli mbi pirgun -->
+    <rect x="21" y="18" width="22" height="2.5" rx="1.25" fill="#c87f2d"/>
+
+    <!-- Inicialet "NP" të ndërlidhura në sfondin poshtë djathtas (i hollë) -->
+    <text x="46" y="60" font-family="Poppins, Arial, sans-serif" font-size="10" font-weight="800" fill="#fff" opacity="0.35" text-anchor="end">NP</text>
+  </g>
+
+  <!-- ========== WORDMARK (teksti) ========== -->
+  <g transform="translate(78,0)">
+    <!-- NDUE -->
+    <text x="0" y="28" font-family="Poppins, Arial, sans-serif" font-size="22" font-weight="800" fill="#26180b" letter-spacing="-0.5">NDUE</text>
+    <!-- PRENGA -->
+    <text x="0" y="52" font-family="Poppins, Arial, sans-serif" font-size="22" font-weight="800" fill="#26180b" letter-spacing="-0.5">PRENGA</text>
+    <!-- Tagline poshtë -->
+    <text x="0" y="64" font-family="Inter, Arial, sans-serif" font-size="7" font-weight="500" fill="#8a6238" letter-spacing="2">LËNDË DRURI · TIMBER</text>
+  </g>
+</svg>
