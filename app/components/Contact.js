@@ -46,7 +46,7 @@ export default function Contact() {
               <div className="ico">✉</div>
               <div>
                 <div className="t">Email</div>
-                <div className="v">info@ndueprenga.al</div>
+                <div className="v"><a href="mailto:kristiprenga301@gmail.com">kristiprenga301@gmail.com</a></div>
               </div>
             </div>
             <div className="contact-item">
@@ -97,7 +97,7 @@ export default function Contact() {
                   <option value="" disabled>Zgjidh...</option>
                   <option>Betoforme</option>
                   <option>Binarë / Trarë</option>
-                  <option>Dërrasa & Palë</option>
+                  <option>Dërrasë Druri e Thatë</option>
                   <option>Lëndë për kulme</option>
                   <option>Binarë Çatie</option>
                   <option>Presë sipas kërkesës</option>

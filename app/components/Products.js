@@ -28,9 +28,9 @@ const PRODUCTS = [
   },
   {
     tag: "Universale",
-    title: "Dërrasa & Palë",
+    title: "Dërrasë Druri e Thatë që Nuk Deformohet",
     images: ["/images/derrasa.jpg", "/images/derrasa-2.jpg", "/images/derrasa-3.jpg"],
-    desc: "Dysheme druri nga pishe me trashësi 2 cm dhe 3.2 cm — e lëmuar, e thatë dhe gati për montim. Mund të përdoret si dysheme përfundimtare, ndarje kati apo nënshtrat për pllaka, parket dhe izolim termik, me qëndrueshmëri të lartë në kohë.",
+    desc: "Falë tharjes industriale të kontrolluar, kjo dërrasë druri mban formën e saj përgjithmonë — nuk kërcelet, nuk përdredhet dhe nuk hapet me ndryshimet e lagështisë. Ideale për dyer druri, korniza, panelime dhe çdo projekt ku kërkohet stabilitet i plotë në kohë. E lëmuar në të dyja anët, gati për ngjyrosje, llaç apo vernik, në trashësi dhe përmasa të ndryshme me prerje sipas kërkesës suaj.",
   },
   {
     tag: "Për dysheme",
@@ -49,7 +49,7 @@ const PRODUCTS = [
 export default function Products() {
   return (
     <section className="section products has-ambient" id="produktet">
-      <AmbientBackground variant="amber" />
+      <AmbientBackground variant="wood" />
       <div className="container">
         <Reveal className="section-head">
           <div className="sh-left">

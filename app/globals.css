@@ -1,36 +1,49 @@
 /* ============================================================
-   NDUE PRENGA — INDUSTRIAL MODERN (redesign radikal)
-   Antracite e errët + portokalli sinjali · kufij të mprehtë
+   NDUE PRENGA — TONA DRURI TË GJALLA (v2)
+   Pishe e yndyrshme / arra · aksent jeshil pylli · teksturë thëngjille e fortë
    Tipografi: Archivo (display) / Inter (body) / JetBrains Mono (detaje)
    ============================================================ */
 
 :root {
-  /* Dark industrial — paleta bazë (default) */
-  --bg:        #0E1013;
-  --bg-2:      #121519;
-  --panel:     #161A1F;
-  --panel-2:   #1B2026;
-  --ink:       #ECEDEF;
-  --ink-soft:  #A6ACB4;
-  --muted:     #6E757E;
+  /* Arra e ngrohtë — paleta bazë (default, dark) */
+  --bg:        #191209;
+  --bg-2:      #20170D;
+  --panel:     #2A1E11;
+  --panel-2:   #342515;
+  --ink:       #F6EEE0;
+  --ink-soft:  #D2BFA6;
+  --muted:     #94816A;
 
-  --signal:    #FF5A1F;
-  --signal-2:  #FF7847;
-  --on-signal: #0B0D0F;
-  --signal-dim: rgba(255, 90, 31, 0.12);
+  /* Aksent kryesor — pishe e yndyrshme / dru i verdhë i ngopur */
+  --signal:    #D9A95F;
+  --signal-2:  #E9BE7C;
+  --on-signal: #2A1B08;
+  --on-signal-soft: rgba(42, 27, 8, 0.74);
+  --signal-dim: rgba(217, 169, 95, 0.14);
+  --signal-shadow: rgba(217, 169, 95, 0.30);
 
-  --line:      rgba(236, 237, 239, 0.09);
-  --line-2:    rgba(236, 237, 239, 0.18);
+  /* Aksent sekondar — jeshile pylli e pasur (badge të veçantë) */
+  --forest:    #3D6B4F;
+  --forest-2:  #4A8060;
+  --on-forest: #F2EDE0;
+
+  --line:      rgba(246, 238, 224, 0.10);
+  --line-2:    rgba(246, 238, 224, 0.20);
 
   /* Seksione gjithmonë të errëta (hero, stats, footer) */
-  --dark-bg:   #0A0C0E;
-  --dark-ink:  #ECEDEF;
+  --dark-bg:   #140E07;
+  --dark-ink:  #F6EEE0;
 
-  --radius:    2px;
+  --radius:    6px;
 
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
-  --shadow:    0 12px 40px rgba(0,0,0,0.45);
-  --shadow-lg: 0 24px 80px rgba(0,0,0,0.55);
+  --shadow-sm: 0 1px 2px rgba(15, 10, 6, 0.3);
+  --shadow:    0 12px 40px rgba(15, 10, 6, 0.45);
+  --shadow-lg: 0 24px 80px rgba(15, 10, 6, 0.55);
+
+  /* Tekstura druri — vija thëngjille kafe (SVG turbulence, alpha nga zhurma) */
+  --wood-tex: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='340'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.005 0.12' numOctaves='5' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.34 0 0 0 0 0.21 0 0 0 0 0.09 0.34 0.34 0.34 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
+  /* Variant më i hollë — për karta, panele, navbar */
+  --wood-tex-soft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='340'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.005 0.12' numOctaves='5' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.34 0 0 0 0 0.21 0 0 0 0 0.09 0.18 0.18 0.18 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
 
   --ease: cubic-bezier(0.32, 0.72, 0, 1);
   --container: 1280px;
@@ -39,41 +52,53 @@
 
 /* Dark mode — ripohim eksplicit i tokenave (klasa vendoset nga next-themes) */
 html.dark {
-  --bg:        #0E1013;
-  --bg-2:      #121519;
-  --panel:     #161A1F;
-  --panel-2:   #1B2026;
-  --ink:       #ECEDEF;
-  --ink-soft:  #A6ACB4;
-  --muted:     #6E757E;
-  --signal:    #FF5A1F;
-  --signal-2:  #FF7847;
-  --signal-dim: rgba(255, 90, 31, 0.12);
-  --line:      rgba(236, 237, 239, 0.09);
-  --line-2:    rgba(236, 237, 239, 0.18);
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
-  --shadow:    0 12px 40px rgba(0,0,0,0.45);
-  --shadow-lg: 0 24px 80px rgba(0,0,0,0.55);
+  --bg:        #191209;
+  --bg-2:      #20170D;
+  --panel:     #2A1E11;
+  --panel-2:   #342515;
+  --ink:       #F6EEE0;
+  --ink-soft:  #D2BFA6;
+  --muted:     #94816A;
+  --signal:    #D9A95F;
+  --signal-2:  #E9BE7C;
+  --on-signal: #2A1B08;
+  --on-signal-soft: rgba(42, 27, 8, 0.74);
+  --signal-dim: rgba(217, 169, 95, 0.14);
+  --signal-shadow: rgba(217, 169, 95, 0.30);
+  --forest:    #3D6B4F;
+  --forest-2:  #4A8060;
+  --on-forest: #F2EDE0;
+  --line:      rgba(246, 238, 224, 0.10);
+  --line-2:    rgba(246, 238, 224, 0.20);
+  --shadow-sm: 0 1px 2px rgba(15, 10, 6, 0.3);
+  --shadow:    0 12px 40px rgba(15, 10, 6, 0.45);
+  --shadow-lg: 0 24px 80px rgba(15, 10, 6, 0.55);
   color-scheme: dark;
 }
 
-/* Light mode — varianti "beton/letra" industrial */
+/* Light mode — krem i ngrohtë me aksent kafe pishë */
 html.light {
-  --bg:        #EDEBE6;
-  --bg-2:      #E4E2DB;
-  --panel:     #F5F4F0;
+  --bg:        #FAF5EC;
+  --bg-2:      #F4EBDC;
+  --panel:     #FDFAF2;
   --panel-2:   #FFFFFF;
-  --ink:       #15181C;
-  --ink-soft:  #3E454D;
-  --muted:     #757C85;
-  --signal:    #E8480F;
-  --signal-2:  #FF5A1F;
-  --signal-dim: rgba(232, 72, 15, 0.10);
-  --line:      rgba(21, 24, 28, 0.12);
-  --line-2:    rgba(21, 24, 28, 0.22);
-  --shadow-sm: 0 1px 2px rgba(21,24,28,0.06);
-  --shadow:    0 12px 40px rgba(21,24,28,0.10);
-  --shadow-lg: 0 24px 80px rgba(21,24,28,0.16);
+  --ink:       #2A1D10;
+  --ink-soft:  #503F2A;
+  --muted:     #8A7558;
+  --signal:    #8B5E34;
+  --signal-2:  #7C4A21;
+  --on-signal: #FDF8EE;
+  --on-signal-soft: rgba(253, 248, 238, 0.80);
+  --signal-dim: rgba(139, 94, 52, 0.12);
+  --signal-shadow: rgba(139, 94, 52, 0.32);
+  --forest:    #33604A;
+  --forest-2:  #274C39;
+  --on-forest: #F4EFE3;
+  --line:      rgba(42, 29, 16, 0.13);
+  --line-2:    rgba(42, 29, 16, 0.24);
+  --shadow-sm: 0 1px 2px rgba(42, 29, 16, 0.07);
+  --shadow:    0 12px 40px rgba(42, 29, 16, 0.12);
+  --shadow-lg: 0 24px 80px rgba(42, 29, 16, 0.18);
   color-scheme: light;
 }
 
@@ -111,7 +136,7 @@ h1, h2, h3, h4 {
 .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: 28px; }
 .section { padding-block: clamp(90px, 12vh, 150px); position: relative; }
 
-/* Linjat vertikale "blueprint" përgjatë faqes */
+/* Linjat vertikale "dërrasë" përgjatë faqes */
 .section .container { border-inline: 1px solid var(--line); }
 .section { border-top: 1px solid var(--line); }
 
@@ -120,6 +145,8 @@ h1, h2, h3, h4 {
   display: flex; justify-content: space-between; align-items: flex-end;
   gap: 48px; flex-wrap: wrap;
   border-top: 1px solid var(--line-2);
+  /* Segmenti i shkurtër druri mbi vijën e ndarjes */
+  background: linear-gradient(var(--signal), var(--signal)) left top / 140px 3px no-repeat;
   padding-top: 26px; margin-bottom: 72px;
 }
 .section-head .sh-left { max-width: 760px; }
@@ -144,7 +171,7 @@ h1, h2, h3, h4 {
   font-weight: 800; letter-spacing: -0.02em; line-height: 0.96;
 }
 
-/* ---------- Buttons — të mprehtë, mono ---------- */
+/* ---------- Buttons ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 12px;
   font-family: var(--font-mono), "JetBrains Mono", monospace;
@@ -166,9 +193,12 @@ h1, h2, h3, h4 {
 
 .btn-primary {
   background: var(--signal); color: var(--on-signal);
-  box-shadow: 0 8px 28px rgba(255, 90, 31, 0.28);
+  box-shadow: 0 10px 32px var(--signal-shadow);
 }
-.btn-primary:hover { background: var(--signal-2); transform: translateY(-2px); }
+.btn-primary:hover {
+  background: var(--signal-2); transform: translateY(-2px);
+  box-shadow: 0 16px 42px var(--signal-shadow);
+}
 
 .btn-dark { background: var(--dark-bg); color: var(--dark-ink); border-color: var(--dark-bg); }
 .btn-dark:hover { background: #000; transform: translateY(-2px); }
@@ -179,7 +209,7 @@ h1, h2, h3, h4 {
 }
 .btn-ghost:hover { border-color: var(--signal); color: var(--signal); transform: translateY(-2px); }
 
-/* Buton WhatsApp (jeshile zyrtare, forma e mprehtë) */
+/* Buton WhatsApp (jeshile zyrtare) */
 .btn-wa {
   background: #25D366; color: #052311;
   box-shadow: 0 8px 28px rgba(37, 211, 102, 0.30);
@@ -189,7 +219,7 @@ h1, h2, h3, h4 {
 .btn-lg { padding: 19px 28px; font-size: 0.82rem; }
 
 /* ============================================================
-   NAVBAR — shirit i plotë industrial me vijë fundore
+   NAVBAR — shirit i plotë me teksturë druri pas scroll-it
    ============================================================ */
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
@@ -201,12 +231,14 @@ h1, h2, h3, h4 {
   transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
 }
 .navbar.scrolled .nav-pill {
-  background: rgba(14, 16, 19, 0.82);
+  background-color: rgba(25, 18, 9, 0.84);
+  background-image: var(--wood-tex-soft);
+  background-size: 340px 340px;
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
   border-bottom-color: var(--line);
 }
-html.light .navbar.scrolled .nav-pill { background: rgba(237, 235, 230, 0.85); }
+html.light .navbar.scrolled .nav-pill { background-color: rgba(250, 245, 236, 0.88); }
 
 .brand {
   display: flex; align-items: center; gap: 12px;
@@ -214,7 +246,7 @@ html.light .navbar.scrolled .nav-pill { background: rgba(237, 235, 230, 0.85); }
   font-weight: 800; font-size: 1.02rem;
   letter-spacing: 0.02em; text-transform: uppercase;
 }
-.navbar .brand { color: #ECEDEF; }
+.navbar .brand { color: #F6EEE0; }
 .navbar.scrolled .brand { color: var(--ink); }
 
 .brand-text { white-space: nowrap; }
@@ -234,7 +266,7 @@ html.light .navbar.scrolled .nav-pill { background: rgba(237, 235, 230, 0.85); }
   font-family: var(--font-mono), monospace;
   font-size: 0.72rem; font-weight: 500;
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: rgba(236, 237, 239, 0.75);
+  color: rgba(246, 238, 224, 0.75);
   padding: 10px 14px;
   border: 1px solid transparent;
   transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
@@ -247,7 +279,7 @@ html.light .navbar.scrolled .nav-pill { background: rgba(237, 235, 230, 0.85); }
 .nav-phone {
   font-family: var(--font-mono), monospace;
   font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
-  color: #ECEDEF;
+  color: #F6EEE0;
   padding: 11px 16px;
   border: 1px solid var(--line-2);
   transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
@@ -258,7 +290,7 @@ html.light .navbar.scrolled .nav-pill { background: rgba(237, 235, 230, 0.85); }
 
 .nav-toggle {
   display: none; font-size: 1.4rem; line-height: 1;
-  color: #ECEDEF; padding: 6px;
+  color: #F6EEE0; padding: 6px;
 }
 .navbar.scrolled .nav-toggle { color: var(--ink); }
 
@@ -278,12 +310,14 @@ html.light .navbar.scrolled .nav-pill { background: rgba(237, 235, 230, 0.85); }
 
 .mobile-menu {
   margin: 0 12px; padding: 10px;
-  background: rgba(14, 16, 19, 0.96);
+  background-color: rgba(25, 18, 9, 0.96);
+  background-image: var(--wood-tex-soft);
+  background-size: 340px 340px;
   backdrop-filter: blur(20px);
   border: 1px solid var(--line);
   display: flex; flex-direction: column;
 }
-html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
+html.light .mobile-menu { background-color: rgba(250, 245, 236, 0.97); }
 .mobile-menu a {
   display: flex; align-items: baseline; gap: 12px;
   padding: 15px 16px;
@@ -298,7 +332,7 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 .mobile-menu a:hover { color: var(--signal); padding-left: 22px; }
 
 /* ============================================================
-   HERO — full-bleed industrial
+   HERO — full-bleed me foto druri të gjallë + teksturë
    ============================================================ */
 .hero {
   position: relative; min-height: 100dvh;
@@ -309,15 +343,15 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
 .hero-bg img {
   width: 100%; height: 100%; object-fit: cover; object-position: center;
-  filter: grayscale(0.55) contrast(1.06) brightness(0.8);
+  filter: sepia(0.14) saturate(1.12) contrast(1.07) brightness(0.85);
 }
 .hero-overlay {
   position: absolute; inset: 0; z-index: 1;
   background:
     linear-gradient(105deg,
-      rgba(10, 12, 14, 0.96) 0%, rgba(10, 12, 14, 0.82) 42%,
-      rgba(10, 12, 14, 0.45) 72%, rgba(10, 12, 14, 0.25) 100%),
-    linear-gradient(to top, rgba(10, 12, 14, 0.9) 0%, transparent 32%);
+      rgba(20, 14, 7, 0.94) 0%, rgba(20, 14, 7, 0.78) 42%,
+      rgba(20, 14, 7, 0.42) 72%, rgba(20, 14, 7, 0.22) 100%),
+    linear-gradient(to top, rgba(20, 14, 7, 0.9) 0%, transparent 32%);
 }
 
 .hero-inner {
@@ -341,40 +375,40 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
   font-size: clamp(3rem, 8.6vw, 7.6rem);
   font-weight: 900; line-height: 0.9; letter-spacing: -0.025em;
   text-transform: uppercase;
-  color: #F4F5F6; margin-bottom: 38px;
+  color: #F8F1E3; margin-bottom: 38px;
 }
 .hero h1 em { font-style: normal; color: var(--signal); }
 
 .hero .lead {
-  font-size: 1.14rem; color: rgba(236, 237, 239, 0.72);
+  font-size: 1.14rem; color: rgba(246, 238, 224, 0.76);
   max-width: 54ch; margin-bottom: 46px; line-height: 1.6;
 }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 72px; }
-.hero-actions .btn-ghost { color: #ECEDEF; border-color: rgba(236,237,239,0.3); }
+.hero-actions .btn-ghost { color: #F6EEE0; border-color: rgba(246, 238, 224, 0.32); }
 .hero-actions .btn-ghost:hover { border-color: var(--signal); color: var(--signal); }
 
 .hero-stats {
   display: flex; gap: 0; flex-wrap: wrap;
-  border-top: 1px solid rgba(236, 237, 239, 0.16);
+  border-top: 1px solid rgba(246, 238, 224, 0.16);
   max-width: 860px;
 }
 .hero-stat {
   padding: 26px 44px 4px 0; margin-right: 44px;
-  border-right: 1px solid rgba(236, 237, 239, 0.16);
+  border-right: 1px solid rgba(246, 238, 224, 0.16);
   padding-right: 44px;
 }
 .hero-stat:last-child { border-right: none; margin-right: 0; }
 .hero-stat .num {
   font-family: var(--font-heading), "Archivo", sans-serif;
   font-weight: 800; font-size: clamp(1.9rem, 3.2vw, 2.7rem);
-  color: #F4F5F6; line-height: 1; letter-spacing: -0.02em;
+  color: #F8F1E3; line-height: 1; letter-spacing: -0.02em;
 }
 .hero-stat .label {
   margin-top: 10px;
   font-family: var(--font-mono), monospace;
   font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: rgba(236, 237, 239, 0.5);
+  color: rgba(246, 238, 224, 0.55);
 }
 
 /* Shiriti i të dhënave mono — poshtë hero */
@@ -382,20 +416,22 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
   position: relative; z-index: 2;
   display: flex; flex-wrap: wrap; gap: 8px 40px;
   padding: 15px 28px;
-  border-top: 1px solid rgba(236, 237, 239, 0.14);
+  border-top: 1px solid rgba(246, 238, 224, 0.14);
   font-family: var(--font-mono), monospace;
   font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(236, 237, 239, 0.55);
+  color: rgba(246, 238, 224, 0.6);
 }
 .hero-meta a { color: var(--signal); transition: opacity 0.25s; }
 .hero-meta a:hover { opacity: 0.75; }
 
-/* ---------- MARQUEE — shiriti sinjal lëvizës ---------- */
+/* ---------- MARQUEE — bandë "dërrase" druri me teksturë ---------- */
 .marquee {
   position: relative; z-index: 2;
   overflow: hidden;
-  background: var(--signal);
-  border-top: 1px solid rgba(0,0,0,0.25);
+  background-color: var(--signal);
+  background-image: var(--wood-tex-soft);
+  background-size: 340px 340px;
+  border-top: 1px solid rgba(0, 0, 0, 0.28);
 }
 .marquee-track {
   display: flex; width: max-content;
@@ -424,9 +460,12 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 
 .product-card {
   position: relative;
-  background: var(--panel);
+  background-color: var(--panel);
+  background-image: var(--wood-tex-soft);
+  background-size: 340px 340px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  overflow: hidden;
   display: flex; flex-direction: column;
   transition: border-color 0.4s var(--ease), box-shadow 0.5s var(--ease), transform 0.5s var(--ease);
 }
@@ -439,15 +478,15 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 }
 .product-thumb img {
   width: 100%; height: 100%; object-fit: cover;
-  filter: grayscale(1) contrast(1.08) brightness(0.92);
+  filter: sepia(0.12) saturate(1.15) contrast(1.06) brightness(0.97);
   transition: filter 0.7s var(--ease), transform 0.8s var(--ease);
 }
-.product-card:hover .product-thumb img { filter: grayscale(0); transform: scale(1.05); }
+.product-card:hover .product-thumb img { filter: none; transform: scale(1.05); }
 
 .tag-over {
   position: absolute; top: 0; left: 0; z-index: 5;
   padding: 8px 14px;
-  background: var(--signal); color: var(--on-signal);
+  background: var(--forest); color: var(--on-forest);
   font-family: var(--font-mono), monospace;
   font-size: 0.62rem; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
@@ -487,7 +526,7 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 .steps > * > .step { flex: 1; width: 100%; }
 
 /* ============================================================
-   FEATURES — rrjetë me linja 1px (blueprint grid)
+   FEATURES — rrjetë me linja 1px
    ============================================================ */
 .features { background: var(--bg-2); }
 .feature-grid {
@@ -518,7 +557,7 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 .feature p { color: var(--ink-soft); font-size: 0.93rem; line-height: 1.6; }
 
 /* ============================================================
-   STATS BAND — gjithmonë e errët
+   STATS BAND — gjithmonë e errët, foto + teksturë druri
    ============================================================ */
 .stats-band {
   position: relative; background: var(--dark-bg); overflow: hidden;
@@ -527,12 +566,14 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 .stats-band-bg { position: absolute; inset: 0; z-index: 0; }
 .stats-band-bg img {
   width: 100%; height: 100%; object-fit: cover;
-  opacity: 0.16;
-  filter: grayscale(1) contrast(1.1);
+  opacity: 0.22;
+  filter: sepia(0.15) saturate(1.15) contrast(1.08) brightness(0.92);
 }
 .stats-band::after {
   content: ""; position: absolute; inset: 0; z-index: 0;
-  background: linear-gradient(to right, rgba(10,12,14,0.88), rgba(10,12,14,0.55));
+  background-image: var(--wood-tex-soft),
+    linear-gradient(to right, rgba(20, 14, 7, 0.88), rgba(20, 14, 7, 0.55));
+  background-size: 340px 340px, cover;
 }
 .stats-band .container { position: relative; z-index: 1; border-inline: none; }
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
@@ -542,12 +583,12 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
   font-family: var(--font-heading), "Archivo", sans-serif;
   font-weight: 800;
   font-size: clamp(2.5rem, 4.6vw, 3.8rem);
-  color: #F4F5F6; line-height: 1; letter-spacing: -0.02em;
+  color: #F8F1E3; line-height: 1; letter-spacing: -0.02em;
 }
 .stats-grid .stat .label {
   margin-top: 12px;
   font-family: var(--font-mono), monospace;
-  color: rgba(236, 237, 239, 0.55);
+  color: rgba(246, 238, 224, 0.6);
   font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
 }
 
@@ -580,40 +621,58 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 .step h3 { font-size: 1rem; font-weight: 800; margin-bottom: 10px; }
 .step p { color: var(--ink-soft); font-size: 0.9rem; line-height: 1.6; }
 
-/* ---------- CTA banner — bllok sinjali ---------- */
+/* ---------- CTA banner — bandë foto druri me overlay të ngrohtë ---------- */
 .cta-banner { margin-top: 88px; }
 .cta-banner-inner {
   padding: 60px 52px;
-  background: var(--signal);
-  color: var(--on-signal);
+  background-color: var(--dark-bg);
+  background-image:
+    linear-gradient(100deg,
+      rgba(20, 13, 6, 0.92) 0%, rgba(20, 13, 6, 0.74) 55%,
+      rgba(20, 13, 6, 0.45) 100%),
+    url("/images/galeri-logs.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #F6EEE0;
   display: flex; align-items: center; justify-content: space-between;
   gap: 40px; flex-wrap: wrap;
   position: relative; overflow: hidden;
+  border-radius: var(--radius);
 }
 .cta-banner-inner::before {
   content: "NP";
   position: absolute; right: -30px; bottom: -70px;
   font-family: var(--font-heading), "Archivo", sans-serif;
   font-weight: 900; font-size: 16rem; line-height: 1;
-  color: rgba(0,0,0,0.07); pointer-events: none;
+  color: rgba(246, 238, 224, 0.06); pointer-events: none;
 }
 .cta-banner h2 {
-  color: var(--on-signal);
+  position: relative; z-index: 1;
+  color: #F8F1E3;
   font-size: clamp(1.7rem, 3.4vw, 2.5rem);
   font-weight: 900; letter-spacing: -0.015em; margin-bottom: 10px;
 }
-.cta-banner p { color: rgba(11, 13, 15, 0.72); max-width: 48ch; font-weight: 500; }
+.cta-banner p { position: relative; z-index: 1; color: rgba(246, 238, 224, 0.82); max-width: 48ch; font-weight: 500; }
 .cta-banner .actions { display: flex; gap: 14px; flex-wrap: wrap; position: relative; z-index: 1; }
 .cta-banner .btn-primary {
-  background: var(--on-signal); color: var(--signal);
-  box-shadow: none;
+  background: var(--signal); color: var(--on-signal);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35);
 }
-.cta-banner .btn-primary:hover { background: #000; }
+.cta-banner .btn-primary:hover { background: var(--signal-2); }
 
 /* ============================================================
-   CONTACT
+   CONTACT — seksion me teksturë druri të hollë
    ============================================================ */
 .contact { background: var(--bg-2); }
+.contact::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: var(--wood-tex);
+  background-size: 340px 340px;
+  opacity: 0.09;
+  pointer-events: none;
+}
+html.light .contact::before { opacity: 0.07; }
+.contact > .container { position: relative; z-index: 1; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: start; }
 @media (max-width: 1000px) { .contact-grid { grid-template-columns: 1fr; } }
 
@@ -643,7 +702,9 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 .contact-item .v { font-weight: 600; color: var(--ink); font-size: 1.02rem; margin-top: 5px; }
 
 .contact-form-wrap {
-  background: var(--panel);
+  background-color: var(--panel);
+  background-image: var(--wood-tex-soft);
+  background-size: 340px 340px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
 }
@@ -675,7 +736,7 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
   color: var(--muted); margin-top: 18px; text-align: center;
 }
 .form-success {
-  background: #1C8A47; color: #F4F5F6;
+  background: #1C8A47; color: #F8F1E3;
   padding: 15px 18px; border-radius: var(--radius); margin-bottom: 20px;
   font-size: 0.9rem; display: flex; align-items: center; gap: 10px;
 }
@@ -688,7 +749,7 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 .carousel-slide { position: absolute; inset: 0; }
 .carousel-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(10,12,14,0.35), transparent 45%);
+  background: linear-gradient(to top, rgba(20, 14, 7, 0.35), transparent 45%);
   pointer-events: none;
 }
 
@@ -696,8 +757,8 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
   position: absolute; top: 50%; transform: translateY(-50%);
   z-index: 6; width: 40px; height: 40px;
   display: grid; place-items: center;
-  background: rgba(14, 16, 19, 0.85); color: #ECEDEF;
-  border: 1px solid rgba(236,237,239,0.2);
+  background: rgba(25, 18, 9, 0.85); color: #F6EEE0;
+  border: 1px solid rgba(246, 238, 224, 0.2);
   backdrop-filter: blur(8px);
   transition: background 0.25s var(--ease), border-color 0.25s var(--ease),
               transform 0.3s var(--ease), opacity 0.3s ease;
@@ -718,7 +779,7 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 }
 .carousel-dot {
   width: 8px; height: 8px;
-  background: rgba(236, 237, 239, 0.35);
+  background: rgba(246, 238, 224, 0.35);
   transition: background 0.3s var(--ease);
 }
 .carousel-dot.active { background: var(--signal); }
@@ -726,20 +787,21 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 @media (max-width: 640px) { .carousel-arrow { opacity: 1; } }
 
 /* ============================================================
-   FOOTER — gjithmonë i errët, me wordmark gigant
+   FOOTER — gjithmonë i errët, wordmark gigant + teksturë e fortë
    ============================================================ */
 .footer {
-  background: var(--dark-bg); color: rgba(236,237,239,0.75);
+  position: relative; overflow: hidden;
+  background: var(--dark-bg); color: rgba(246, 238, 224, 0.78);
   border-top: 2px solid var(--signal);
 }
-.footer > .container { padding-top: 64px; padding-bottom: 34px; }
+.footer > .container { position: relative; z-index: 1; padding-top: 64px; padding-bottom: 34px; }
 
 .footer-word {
   font-family: var(--font-heading), "Archivo", sans-serif;
   font-weight: 900; text-transform: uppercase;
   font-size: clamp(2.6rem, 9.2vw, 8.2rem);
   line-height: 0.92; letter-spacing: -0.02em;
-  color: #F4F5F6;
+  color: #F8F1E3;
   margin-bottom: 56px;
   display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 18px;
 }
@@ -749,18 +811,18 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 .footer-map { margin-bottom: 72px; }
 .footer-map-wrap {
   position: relative;
-  border: 1px solid rgba(236,237,239,0.14);
+  border: 1px solid rgba(246, 238, 224, 0.14);
   overflow: hidden;
   height: 380px;
-  background: #060708;
+  background: #0E0905;
 }
 .footer-map-link { display: block; width: 100%; height: 100%; }
 .footer-map-img {
   width: 100%; height: 100%; object-fit: cover; display: block;
-  filter: grayscale(0.6) contrast(1.05) brightness(0.9);
+  filter: sepia(0.1) saturate(1.05) contrast(1.05) brightness(0.92);
   transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
 }
-.footer-map-link:hover .footer-map-img { transform: scale(1.02); filter: grayscale(0); }
+.footer-map-link:hover .footer-map-img { transform: scale(1.02); filter: none; }
 .footer-map-cta {
   position: absolute; bottom: 16px; right: 16px;
   display: inline-flex; align-items: center; gap: 10px;
@@ -780,8 +842,8 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
 @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
-.footer .brand { color: #F4F5F6; margin-bottom: 22px; font-size: 1.1rem; }
-.footer-about p { color: rgba(236,237,239,0.5); font-size: 0.94rem; max-width: 34ch; line-height: 1.65; }
+.footer .brand { color: #F8F1E3; margin-bottom: 22px; font-size: 1.1rem; }
+.footer-about p { color: rgba(246, 238, 224, 0.55); font-size: 0.94rem; max-width: 34ch; line-height: 1.65; }
 .footer-col h4 {
   color: var(--signal);
   font-family: var(--font-mono), monospace;
@@ -791,19 +853,19 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
 }
 .footer-col ul { display: flex; flex-direction: column; gap: 13px; }
 .footer-col a, .footer-col li {
-  color: rgba(236,237,239,0.55); font-size: 0.92rem;
+  color: rgba(246, 238, 224, 0.58); font-size: 0.92rem;
   transition: color 0.25s var(--ease);
 }
 .footer-col a:hover { color: var(--signal); }
 .footer-bottom {
-  border-top: 1px solid rgba(236,237,239,0.12); padding-top: 26px;
+  border-top: 1px solid rgba(246, 238, 224, 0.12); padding-top: 26px;
   display: flex; justify-content: space-between; align-items: center;
   flex-wrap: wrap; gap: 14px;
   font-family: var(--font-mono), monospace;
   font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: rgba(236,237,239,0.4);
+  color: rgba(246, 238, 224, 0.42);
 }
-.footer-coords { color: rgba(236,237,239,0.35); }
+.footer-coords { color: rgba(246, 238, 224, 0.38); }
 
 /* ============================================================
    AMBIENT BLOBS + SCROLL PROGRESS + GRAIN
@@ -824,6 +886,23 @@ html.light .mobile-menu { background: rgba(237, 235, 230, 0.97); }
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 html.light .grain-overlay { opacity: 0.035; }
+
+/* ============================================================
+   TEKSTURA DRURI E FORTË — vija thëngjille kafe në sipërfaqe kyçe
+   (hero, footer, CTA banner)
+   ============================================================ */
+.hero-overlay::after,
+.footer::before,
+.cta-banner-inner::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: var(--wood-tex);
+  background-size: 340px 340px;
+  pointer-events: none;
+}
+.hero-overlay::after { opacity: 0.28; }
+.footer::before { opacity: 0.20; }
+.cta-banner-inner::after { opacity: 0.22; }
 
 /* ============================================================
    Reduced motion
@@ -896,13 +975,13 @@ html.light .grain-overlay { opacity: 0.035; }
 }
 .gallery-item img {
   width: 100%; height: 100%; object-fit: cover; display: block;
-  filter: grayscale(1) contrast(1.06);
+  filter: sepia(0.12) saturate(1.12) contrast(1.05);
   transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
 }
-.gallery-item:hover img { transform: scale(1.06); filter: grayscale(0); }
+.gallery-item:hover img { transform: scale(1.06); filter: none; }
 .gallery-item .g-tag {
   position: absolute; left: 0; bottom: 0;
-  background: var(--signal); color: var(--on-signal);
+  background: var(--forest); color: var(--on-forest);
   font-family: var(--font-mono), monospace;
   font-size: 0.64rem; font-weight: 700;
   letter-spacing: 0.16em; text-transform: uppercase;
@@ -920,7 +999,9 @@ html.light .grain-overlay { opacity: 0.035; }
 .pricing .section-head { margin-bottom: 56px; }
 .pricing-table-wrapper {
   overflow-x: auto;
-  background: var(--panel);
+  background-color: var(--panel);
+  background-image: var(--wood-tex-soft);
+  background-size: 340px 340px;
   border: 1px solid var(--line);
 }
 .pricing-table { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 0.95rem; }
@@ -930,7 +1011,9 @@ html.light .grain-overlay { opacity: 0.035; }
   font-size: 0.64rem; font-weight: 700;
   letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--on-signal);
-  background: var(--signal);
+  background-color: var(--signal);
+  background-image: var(--wood-tex-soft);
+  background-size: 340px 340px;
   padding: 16px 22px;
   white-space: nowrap;
 }
@@ -951,9 +1034,18 @@ html.light .grain-overlay { opacity: 0.035; }
 .pricing-footer { margin-top: 24px; text-align: center; font-size: 0.84rem; color: var(--muted); }
 
 /* ============================================================
-   FAQ — listë me linja 1px
+   FAQ — listë me linja 1px + teksturë druri
    ============================================================ */
 .faq { background: var(--bg); }
+.faq::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: var(--wood-tex);
+  background-size: 340px 340px;
+  opacity: 0.08;
+  pointer-events: none;
+}
+html.light .faq::before { opacity: 0.06; }
+.faq > .container { position: relative; z-index: 1; }
 .faq-list {
   display: flex; flex-direction: column;
   border-top: 1px solid var(--line-2);
@@ -962,7 +1054,11 @@ html.light .grain-overlay { opacity: 0.035; }
   border-bottom: 1px solid var(--line);
   transition: background 0.35s var(--ease);
 }
-.faq-item.open { background: var(--panel); }
+.faq-item.open {
+  background-color: var(--panel);
+  background-image: var(--wood-tex-soft);
+  background-size: 340px 340px;
+}
 .faq-question {
   width: 100%;
   display: flex; align-items: center; gap: 26px;

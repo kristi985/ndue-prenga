@@ -9,20 +9,20 @@ export default function Logo({ size = 40, className = "" }) {
       className={className}
       aria-hidden="true"
     >
-      {/* Kornizë e mprehtë antracite */}
-      <rect width="64" height="64" fill="#16191D" />
-      <rect x="0.5" y="0.5" width="63" height="63" fill="none" stroke="#3A4149" strokeWidth="1" />
+      {/* Kornizë arre e errët */}
+      <rect width="64" height="64" fill="#241A12" />
+      <rect x="0.5" y="0.5" width="63" height="63" fill="none" stroke="#4E342E" strokeWidth="1" />
 
-      {/* Pirg dërrasash — simboli i biznesit, tona çeliku */}
-      <rect x="12" y="40" width="40" height="8" fill="#4A525C" />
-      <rect x="16" y="30" width="32" height="8" fill="#6B747F" />
-      <rect x="20" y="20" width="24" height="8" fill="#8A929C" />
+      {/* Pirg dërrasash — simboli i biznesit, tona druri */}
+      <rect x="12" y="40" width="40" height="8" fill="#5D4037" />
+      <rect x="16" y="30" width="32" height="8" fill="#8D6E63" />
+      <rect x="20" y="20" width="24" height="8" fill="#BCAAA4" />
 
-      {/* Shiriti sinjal — aksenti portokalli */}
-      <rect x="20" y="20" width="24" height="3" fill="#FF5A1F" />
+      {/* Shiriti pishë — aksenti dru i verdhë i ngopur */}
+      <rect x="20" y="20" width="24" height="3" fill="#D9A95F" />
 
-      {/* Pika sinjali poshtë */}
-      <rect x="12" y="52" width="6" height="6" fill="#FF5A1F" />
+      {/* Pika pishë poshtë */}
+      <rect x="12" y="52" width="6" height="6" fill="#D9A95F" />
     </svg>
   );
 }

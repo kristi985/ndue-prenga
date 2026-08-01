@@ -17,7 +17,7 @@ const MARQUEE = [
   "Betoforme",
   "Binarë Suedes",
   "Trarë Çatie",
-  "Dërrasa & Palë",
+  "Dërrasë Druri e Thatë",
   "Ristel",
   "Lëndë Kulmi",
   "Paleta",
@@ -55,9 +55,9 @@ export default function Hero() {
         </motion.span>
 
         <motion.h1 variants={item}>
-          Drurë për <em>ndërtim.</em>
+          Lëndë druri <em>e thatë.</em>
           <br />
-          Pa{"\u00A0"}kompromis.
+          Kualitet pa{"\u00A0"}kompromis.
         </motion.h1>
 
         <motion.p className="lead" variants={item}>

@@ -19,7 +19,7 @@ const PHOTOS = [
 export default function Gallery() {
   return (
     <section className="section gallery has-ambient" id="galeria">
-      <AmbientBackground variant="amber" />
+      <AmbientBackground variant="wood" />
       <div className="container">
         <Reveal className="section-head center">
           <span className="eyebrow">Galeria</span>

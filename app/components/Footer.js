@@ -80,6 +80,7 @@ export default function Footer() {
             <h4>Kontakti</h4>
             <ul>
               <li><a href="tel:+355682006400">📞 +355 68 200 6400</a></li>
+              <li><a href="mailto:kristiprenga301@gmail.com">✉️ kristiprenga301@gmail.com</a></li>
               <li>
                 <a href={mapsLink} target="_blank" rel="noopener noreferrer">
                   📍 SH56, Tiranë
