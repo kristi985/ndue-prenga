@@ -21,7 +21,6 @@ const MARQUEE = [
   "Ristel",
   "Lëndë Kulmi",
   "Paleta",
-  "Prerje CNC",
 ];
 
 export default function Hero() {

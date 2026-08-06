@@ -42,7 +42,7 @@ const PRODUCTS = [
     tag: "Special",
     title: "Prerje sipas kërkesës",
     img: "/images/presa.jpg",
-    desc: "Prerje druri në përmasa, trashësi dhe profile specifike për projektin tënd. Përpunim CNC me saktësi milimetrike.",
+    desc: "Prerje druri në përmasa, trashësi dhe profile specifike për projektin tënd. Saktësi e lartë dhe përshtatje e plotë me kërkesat e kantierit.",
   },
 ];
 
