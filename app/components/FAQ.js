@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: 'Çfarë lloje druri keni?',
-    a: 'Ne ofrojmë kryesisht dru pishe dhe bredhi për ndërtim — betoforme, binarë, trarë, dërrasa, paleta, lëndë për kulme dhe më shumë. Të gjitha të trajtuara dhe të gatshme për përdorim.',
+    a: 'Ne ofrojmë kryesisht dru pishe dhe bredhi për ndërtim — betoforme, binarë, trarë, dërrasa, tjegulla, lëndë për kulme dhe më shumë. Të gjitha të trajtuara dhe të gatshme për përdorim.',
   },
   {
     q: 'A bëni dorëzim jashtë Shqipërisë?',

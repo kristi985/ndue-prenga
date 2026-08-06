@@ -22,7 +22,7 @@ const MARQUEE = [
   "Dërrasë Druri e Thatë",
   "Ristel",
   "Lëndë Kulmi",
-  "Paleta",
+  "Tjegulla",
 ];
 
 export default function Hero() {
