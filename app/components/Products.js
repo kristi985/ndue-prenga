@@ -7,41 +7,43 @@ import AnimatedHeading from "./AnimatedHeading";
 import AmbientBackground from "./AmbientBackground";
 import ProductCarousel from "./ProductCarousel";
 
+const BP = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const PRODUCTS = [
   {
     tag: "Më i kërkuari",
     title: "Betoforme",
-    img: "/images/betoforme.jpg",
+    img: BP + "/images/betoforme.jpg",
     desc: "Betoforme me rimeso ahu (birch plywood) me film fenolik 120 g/m² në të dyja anët. Bërthamë nga shtresa ahu të kryqëzuara me ngjitje BFU 100 — për sipërfaqe betoni me cilësi të lartë.",
   },
   {
     tag: "Për strukturë",
     title: "Binar Suedes & Tavanore",
-    img: "/images/binare.jpg",
+    img: BP + "/images/binare.jpg",
     desc: "Materiale për çati druri — binar suedes dhe tavanore me puthitje femër-mashkull nga pishe suedeze. Të tharë në furrë, të zgjedhur dhe të niveluar me kujdes për struktura të qëndrueshme dhe montim të pastër.",
   },
   {
     tag: "Për çati",
     title: "Binarë & Trarë për Çati",
-    images: ["/images/binar-cati.jpg", "/images/trare-cati.jpg"],
+    images: [BP + "/images/binar-cati.jpg", BP + "/images/trare-cati.jpg"],
     desc: "Binarë dhe trarë për çati druri — të tharë dhe të klasifikuar për strukturat mbajtëse të kulmeve. Të përzgjedhur për qëndrueshmëri dhe rezistencë në mot.",
   },
   {
     tag: "Universale",
     title: "Dërrasë Druri e Thatë që Nuk Deformohet",
-    images: ["/images/derrasa.jpg", "/images/derrasa-2.jpg", "/images/derrasa-3.jpg"],
+    images: [BP + "/images/derrasa.jpg", BP + "/images/derrasa-2.jpg", BP + "/images/derrasa-3.jpg"],
     desc: "Falë tharjes industriale të kontrolluar, kjo dërrasë druri mban formën e saj përgjithmonë — nuk kërcelet, nuk përdredhet dhe nuk hapet me ndryshimet e lagështisë. Ideale për dyer druri, korniza, panelime dhe çdo projekt ku kërkohet stabilitet i plotë në kohë. E lëmuar në të dyja anët, gati për ngjyrosje, llaç apo vernik, në trashësi dhe përmasa të ndryshme me prerje sipas kërkesës suaj.",
   },
   {
     tag: "Për dysheme",
     title: "Ristel me Dimensione",
-    img: "/images/ristel.jpg",
+    img: BP + "/images/ristel.jpg",
     desc: "Ristel druri me dimensione të ndryshme — për dysheme, ndarje kati dhe struktura të lehta. E tharë dhe e lëmuar, gati për montim në ambiente të brendshme dhe të jashtme.",
   },
   {
     tag: "Special",
     title: "Prerje sipas kërkesës",
-    img: "/images/presa.jpg",
+    img: BP + "/images/presa.jpg",
     desc: "Prerje druri në përmasa, trashësi dhe profile specifike për projektin tënd. Saktësi e lartë dhe përshtatje e plotë me kërkesat e kantierit.",
   },
 ];

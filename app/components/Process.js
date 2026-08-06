@@ -4,6 +4,8 @@ import { motion } from "motion/react";
 import Reveal, { RevealGroup, RevealItem } from "./Reveal";
 import AnimatedHeading from "./AnimatedHeading";
 
+const BP = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const STEPS = [
   { n: "01", title: "Na shkruani", desc: "Na tregoni për projektin tuaj — sasi, lloj druri, përmasa dhe afat. Përmes formularit ose telefonit." },
   { n: "02", title: "Marrëm ofertën", desc: "Brenda 24 orëve ju dërgojmë ofertë të detajuar me çmime të qarta dhe kohë dorëzimi." },
@@ -50,7 +52,10 @@ export default function Process() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="cta-banner-inner">
+            <div
+              className="cta-banner-inner"
+              style={{ backgroundImage: `linear-gradient(100deg, rgba(20,13,6,0.92) 0%, rgba(20,13,6,0.74) 55%, rgba(20,13,6,0.45) 100%), url("${BP}/images/galeri-logs.jpg")` }}
+            >
               <div>
                 <h2>Gati të filloni?</h2>
                 <p>Merrni një ofertë falas sot — pa angazhim.</p>

@@ -4,6 +4,8 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import Counter from "./Counter";
 
+const BP = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
@@ -34,7 +36,7 @@ export default function Hero() {
     <section className="hero" id="kryefaqja">
       <motion.div className="hero-bg" style={{ y: bgY, scale: bgScale }}>
         <Image
-          src="/images/hero-lumber.jpg"
+          src={BP + "/images/hero-lumber.jpg"}
           alt="Lëndë druri — pirg dërrasash"
           fill priority sizes="100vw"
           style={{ objectFit: "cover", objectPosition: "center" }}

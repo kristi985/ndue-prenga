@@ -1,5 +1,7 @@
 import Logo from "./Logo";
 
+const BP = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function Footer() {
   // Koordinatat e biznesit (Lagjja e Re, Vaqarr, Tiranë)
   const lat = 41.3075989;
@@ -24,7 +26,7 @@ export default function Footer() {
               title="Hap hartën në Google Maps"
             >
               <img
-                src="/images/harta.jpg"
+                src={BP + "/images/harta.jpg"}
                 alt="Harta — NDUE PRENGA, SH56 Tiranë"
                 loading="lazy"
                 className="footer-map-img"

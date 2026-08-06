@@ -5,6 +5,8 @@ import { motion } from "motion/react";
 import { RevealGroup, RevealItem } from "./Reveal";
 import Counter from "./Counter";
 
+const BP = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const STATS = [
   { num: 15, suffix: "+", label: "Vite eksperiencë" },
   { num: 100, suffix: "%", label: "Lëndë e garantuar" },
@@ -17,7 +19,7 @@ export default function Stats() {
     <section className="section stats-band" style={{ paddingBlock: "88px" }}>
       <div className="stats-band-bg">
         <Image
-          src="/images/magazina.jpg"
+          src={BP + "/images/magazina.jpg"}
           alt=""
           fill
           sizes="100vw"

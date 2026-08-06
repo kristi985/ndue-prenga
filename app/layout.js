@@ -26,6 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://kristi985.github.io"),
   title: "NDUE PRENGA — Lëndë Druri për Ndërtim | Betoforme, Binarë, Dërrasa",
   description:
     "Furnizues i lëndës së drurit për ndërtim: betoforme, binarë, dërrasa, palë dhe më tepër. Cilësi e garantuar, çmime konkurruese, dorëzim i shpejtë.",
@@ -46,7 +47,7 @@ export const metadata = {
     type: "website",
     locale: "sq_AL",
     siteName: "NDUE PRENGA",
-    images: [{ url: "/images/hero-lumber.jpg", width: 1200, height: 630, alt: "NDUE PRENGA — Lëndë druri" }],
+    images: [{ url: "/ndue-prenga/images/hero-lumber.jpg", width: 1200, height: 630, alt: "NDUE PRENGA — Lëndë druri" }],
   },
 };
 

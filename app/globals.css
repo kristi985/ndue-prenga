@@ -629,8 +629,7 @@ html.light .mobile-menu { background-color: rgba(250, 245, 236, 0.97); }
   background-image:
     linear-gradient(100deg,
       rgba(20, 13, 6, 0.92) 0%, rgba(20, 13, 6, 0.74) 55%,
-      rgba(20, 13, 6, 0.45) 100%),
-    url("/images/galeri-logs.jpg");
+      rgba(20, 13, 6, 0.45) 100%);
   background-size: cover;
   background-position: center;
   color: #F6EEE0;
