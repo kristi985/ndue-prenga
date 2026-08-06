@@ -19,7 +19,7 @@ const MARQUEE = [
   "Betoforme",
   "Binarë Suedes",
   "Trarë Çatie",
-  "Dërrasë Druri e Thatë",
+  "Dërrasë e Thatë",
   "Ristel",
   "Lëndë Kulmi",
   "Tjegulla",

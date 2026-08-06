@@ -30,7 +30,7 @@ const PRODUCTS = [
   },
   {
     tag: "Universale",
-    title: "Dërrasë Druri e Thatë që Nuk Deformohet",
+    title: "Dërrasë e Thatë",
     images: [BP + "/images/derrasa.jpg", BP + "/images/derrasa-2.jpg", BP + "/images/derrasa-3.jpg"],
     desc: "Falë tharjes industriale të kontrolluar, kjo dërrasë druri mban formën e saj përgjithmonë — nuk kërcelet, nuk përdredhet dhe nuk hapet me ndryshimet e lagështisë. Ideale për dyer druri, korniza, panelime dhe çdo projekt ku kërkohet stabilitet i plotë në kohë. E lëmuar në të dyja anët, gati për ngjyrosje, llaç apo vernik, në trashësi dhe përmasa të ndryshme me prerje sipas kërkesës suaj.",
   },
