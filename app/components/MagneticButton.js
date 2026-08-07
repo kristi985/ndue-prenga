@@ -43,7 +43,16 @@ export default function MagneticButton({
   };
 
   const sizeClass = size === "lg" ? "btn-lg" : "";
-  const variantClass = variant === "ghost" ? "btn-ghost" : variant === "dark" ? "btn-dark" : "btn-primary";
+  const variantClass =
+    variant === "ghost"
+      ? "btn-ghost"
+      : variant === "dark"
+        ? "btn-dark"
+        : variant === "wa"
+          ? "btn-wa"
+          : variant === "none"
+            ? ""
+            : "btn-primary";
 
   const content = (
     <motion.span

@@ -1,8 +1,11 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useRef } from "react";
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "motion/react";
 import Reveal, { RevealGroup, RevealItem } from "./Reveal";
 import AnimatedHeading from "./AnimatedHeading";
+import MagneticButton from "./MagneticButton";
 
 const BP = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -14,6 +17,14 @@ const STEPS = [
 ];
 
 export default function Process() {
+  const ctaRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ctaRef,
+    offset: ["start end", "end start"],
+  });
+  /* Parallax i butë në foton e CTA banner-it */
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
+
   return (
     <section className="section process" id="procesi">
       <div className="container">
@@ -47,24 +58,31 @@ export default function Process() {
         <Reveal>
           <motion.div
             className="cta-banner"
+            ref={ctaRef}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div
-              className="cta-banner-inner"
-              style={{ backgroundImage: `linear-gradient(100deg, rgba(20,13,6,0.92) 0%, rgba(20,13,6,0.74) 55%, rgba(20,13,6,0.45) 100%), url("${BP}/images/galeri-logs.jpg")` }}
-            >
+            <div className="cta-banner-inner">
+              <motion.div className="cta-banner-bg" style={{ y: bgY }} aria-hidden="true">
+                <Image
+                  src={BP + "/images/galeri-logs.jpg"}
+                  alt=""
+                  fill
+                  sizes="(max-width: 1280px) 100vw, 1280px"
+                  style={{ objectFit: "cover" }}
+                />
+              </motion.div>
               <div>
                 <h2>Gati të filloni?</h2>
                 <p>Merrni një ofertë falas sot — pa angazhim.</p>
               </div>
               <div className="actions">
-                <a href="#kontakt" className="btn btn-primary btn-lg">
+                <MagneticButton href="#kontakt" variant="primary" size="lg">
                   Kërko ofertë
                   <span className="btn-ico">→</span>
-                </a>
+                </MagneticButton>
               </div>
             </div>
           </motion.div>

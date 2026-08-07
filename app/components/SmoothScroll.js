@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
+import { MotionConfig } from "motion/react";
 
 /**
  * Smooth scroll i tipit "premium" me Lenis.
@@ -38,5 +39,5 @@ export default function SmoothScroll({ children }) {
     };
   }, []);
 
-  return <>{children}</>;
+  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
 }

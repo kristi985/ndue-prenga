@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState } from "react";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/react";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
+import MagneticButton from "./MagneticButton";
 
 const LINKS = [
   { href: "#produktet", label: "Produktet", n: "01" },
@@ -14,21 +15,28 @@ const LINKS = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (y) => {
+    const prev = scrollY.getPrevious() ?? 0;
+    setScrolled(y > 8);
+    if (open) {
+      setHidden(false);
+      return;
+    }
+    if (y > prev && y > 160) setHidden(true);
+    else if (y < prev) setHidden(false);
+  });
 
   return (
     <motion.header
       className={`navbar ${scrolled ? "scrolled" : ""}`}
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ y: "-110%", opacity: 0 }}
+      animate={{ y: hidden ? "-110%" : "0%", opacity: 1 }}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="nav-pill">
         <a href="#kryefaqja" className="brand" onClick={() => setOpen(false)}>
@@ -47,9 +55,9 @@ export default function Navbar() {
         </nav>
 
         <div className="nav-cta">
-          <a className="nav-phone" href="tel:+355682006400">
+          <MagneticButton href="tel:+355682006400" variant="none" className="nav-phone" strength={0.25}>
             +355 68 200 6400
-          </a>
+          </MagneticButton>
           <ThemeToggle />
           <button
             className="nav-toggle"

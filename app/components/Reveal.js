@@ -2,14 +2,17 @@
 
 import { motion } from "motion/react";
 
+const EASE = [0.22, 1, 0.36, 1];
+
 /**
  * Wrapper që animon hyrjen e fëmijëve kur hyjnë në viewport.
+ * Blur + rise reveal: opacity + blur(8px→0) + translateY.
  * Përdor whileInView — pa nevojën për IntersectionObserver manual.
  */
 export default function Reveal({
   children,
   delay = 0,
-  y = 28,
+  y = 24,
   className = "",
   as = "div",
 }) {
@@ -18,10 +21,10 @@ export default function Reveal({
   return (
     <MotionTag
       className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+      transition={{ duration: 0.75, ease: EASE, delay }}
     >
       {children}
     </MotionTag>
@@ -51,11 +54,12 @@ export function RevealItem({ children, className = "" }) {
     <motion.div
       className={className}
       variants={{
-        hidden: { opacity: 0, y: 28 },
+        hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
         show: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+          filter: "blur(0px)",
+          transition: { duration: 0.7, ease: EASE },
         },
       }}
     >
