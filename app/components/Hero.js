@@ -21,7 +21,7 @@ const MARQUEE = [
   "Trarë Çatie",
   "Dërrasë e Thatë",
   "Ristel",
-  "Lëndë Kulmi",
+  "Tendë Druri",
   "Tjegulla",
 ];
 
