@@ -12,7 +12,7 @@ const BP = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const STEPS = [
   { n: "01", title: "Na shkruani", desc: "Na tregoni për projektin tuaj — sasi, lloj druri, përmasa dhe afat. Përmes formularit ose telefonit." },
   { n: "02", title: "Marrëm ofertën", desc: "Brenda 24 orëve ju dërgojmë ofertë të detajuar me çmime të qarta dhe kohë dorëzimi." },
-  { n: "03", title: "Porosit & përpunojmë", desc: "Pas konfirmimit, lënda përgatitet dhe kontrollohet në magazinën tonë sipas kërkesës suaj." },
+  { n: "03", title: "Seleksionim në magazinë", desc: "Lënda seleksionohet në magazinën tonë — ajo që nuk bën hiqet dhe mbahet vetëm lëndë pa difekt." },
   { n: "04", title: "Dorëzim në kantier", desc: "Dërgesë me kamion në adresën tuaj, me mundësi shkarkimi. Gati për t'u përdorur." },
 ];
 
