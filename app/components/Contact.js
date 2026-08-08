@@ -39,7 +39,7 @@ export default function Contact() {
               <div className="ico">☎</div>
               <div>
                 <div className="t">Telefon</div>
-                <div className="v">068 200 6400</div>
+                <div className="v"><a href="tel:+355682006400">068 200 6400</a></div>
               </div>
             </div>
             <div className="contact-item">
@@ -53,7 +53,7 @@ export default function Contact() {
               <div className="ico">⌖</div>
               <div>
                 <div className="t">Magazina</div>
-                <div className="v">SH56, Tiranë</div>
+                <div className="v"><a href="https://www.google.com/maps/search/?api=1&query=41.3075989%2C19.7575329" target="_blank" rel="noopener noreferrer">SH56, Tiranë</a></div>
               </div>
             </div>
             <div className="contact-item">

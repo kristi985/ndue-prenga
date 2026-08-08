@@ -12,7 +12,7 @@ const STATS = [
   { num: 15, suffix: "+", label: "Vite eksperiencë" },
   { num: 100, suffix: "%", label: "Lëndë e garantuar" },
   { num: 48, suffix: "h", label: "Dorëzim i shpejtë" },
-  { num: 100, suffix: "%", label: "Klientë të kënaqur" },
+  { num: 180, suffix: "+", label: "Klientë të kënaqur" },
 ];
 
 export default function Stats() {
