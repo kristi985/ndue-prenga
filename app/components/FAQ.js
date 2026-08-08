@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: 'Sa zgjat dorëzimi i porosisë?',
-    a: 'Dorëzimi varet nga sasia dhe distanca. Për porosi brenda Shqipërisë, zakonisht dorëzojmë brenda 2-5 ditë pune. Për porosi të mëdha ose speciale, koha mund të jetë 7-14 ditë.',
+    a: 'Për porositë brenda Shqipërisë, zakonisht dorëzojmë brenda 24 orësh. Për porosi të mëdha ose speciale, kohën e saktë e konfirmojmë me ofertën.',
   },
   {
     q: 'A keni çmime fikse?',

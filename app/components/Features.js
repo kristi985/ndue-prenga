@@ -9,7 +9,7 @@ const FEATURES = [
   { icon: "◐", title: "Drurë të zgjedhur", desc: "Lënda vjen nga pyje të menaxhuar në mënyrë të qëndrueshme në Evropë, me origjinë të gjurmuar." },
   { icon: "◇", title: "Përmasa precize", desc: "Të gjitha produktet kontrollohen për tolerancë dhe cilësi para se të nisen drejt kantierit." },
   { icon: "◑", title: "Çmime transparente", desc: "Pa komisione të fshehura. Oferta e shkruar brenda 24 orëve, me çmime të qarta për sasi." },
-  { icon: "◈", title: "Dorëzim i shpejtë", desc: "Rrugëtokë në të gjithë vendin. Mundësi dorëzimi brenda 48 orëve për porositë standarde." },
+  { icon: "◈", title: "Dorëzim i shpejtë", desc: "Rrugëtokë në të gjithë vendin. Zakonisht dorëzojmë brenda 24 orëve për porositë standarde." },
   { icon: "❖", title: "Ripërdorim i lartë", desc: "Betoformat tona janë të ripërdorshme deri në 10+ cikle — kursim real për kantierin." },
   { icon: "◆", title: "Garanci produktoresh", desc: "Çdo sasi shoqërohet me certifikatë cilësie dhe mbështetje teknike pas shitjes." },
 ];
