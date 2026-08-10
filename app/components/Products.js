@@ -30,7 +30,7 @@ const PRODUCTS = [
   },
   {
     tag: "Universale",
-    title: "Dërrasë e Thatë",
+    title: "Lëndë Druri e Thatë me Përmasa të Ndryshme",
     images: [BP + "/images/derrasa.jpg", BP + "/images/derrasa-2.jpg", BP + "/images/derrasa-3.jpg"],
     desc: "E tharë industrialisht — nuk kërcelet dhe nuk deformohet me lagështinë. Ideale për dyer, korniza dhe panelime, e lëmuar në të dyja anët dhe gati për punë.",
   },
