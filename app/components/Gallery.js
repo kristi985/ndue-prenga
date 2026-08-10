@@ -6,6 +6,7 @@ import AnimatedHeading from "./AnimatedHeading";
 import AmbientBackground from "./AmbientBackground";
 
 const PHOTOS = [
+  { src: "/images/galeri-sharra.jpg", tag: "Punishtja jonë" },
   { src: "/images/galeri-trare.jpg", tag: "Trarë të përzgjedhur" },
   { src: "/images/galeri-pirg.jpg", tag: "Stok i gjerë" },
   { src: "/images/galeri-logs.jpg", tag: "Lëndë e parë" },
