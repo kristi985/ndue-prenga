@@ -100,6 +100,7 @@ export default function Contact() {
                   <option>Lëndë Druri e Thatë</option>
                   <option>Lëndë për kulme</option>
                   <option>Binarë Çatie</option>
+                  <option>Tjegull Mladost</option>
                   <option>Presë sipas kërkesës</option>
                   <option>Tjetër / Shumë lloje</option>
                 </select>

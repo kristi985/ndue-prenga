@@ -29,6 +29,12 @@ const PRODUCTS = [
     desc: "Binarë dhe trarë për çati druri — të tharë dhe të klasifikuar për strukturat mbajtëse të kulmeve. Të përzgjedhur për qëndrueshmëri dhe rezistencë në mot.",
   },
   {
+    tag: "Për kulme",
+    title: "Tjegull Mladost — Kafe & e Zezë",
+    img: BP + "/images/tjegull-mladost.jpg",
+    desc: "Tjegulla origjinale Mladost në dy ngjyra — kafe dhe e zezë. Rezistente ndaj motit, ngricave dhe rrezetimit UV, në paketim origjinal nga fabrika. Gati për dorëzim në sasi të vogla e të mëdha.",
+  },
+  {
     tag: "Universale",
     title: "Lëndë Druri e Thatë me Përmasa të Ndryshme",
     images: [BP + "/images/derrasa.jpg", BP + "/images/derrasa-2.jpg", BP + "/images/derrasa-3.jpg"],
