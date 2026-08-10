@@ -97,7 +97,7 @@ export default function Contact() {
                   <option value="" disabled>Zgjidh...</option>
                   <option>Betoforme</option>
                   <option>Binarë / Trarë</option>
-                  <option>Dërrasë e Thatë</option>
+                  <option>Lëndë Druri e Thatë</option>
                   <option>Lëndë për kulme</option>
                   <option>Binarë Çatie</option>
                   <option>Presë sipas kërkesës</option>
