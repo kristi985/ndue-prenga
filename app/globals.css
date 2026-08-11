@@ -353,17 +353,6 @@ html.light .mobile-menu { background-color: rgba(250, 245, 236, 0.97); }
       rgba(20, 14, 7, 0.42) 72%, rgba(20, 14, 7, 0.22) 100%),
     linear-gradient(to top, rgba(20, 14, 7, 0.9) 0%, transparent 32%);
 }
-/* Spotlight i hollë që ndjek kursorin në hero */
-.hero-glow {
-  position: absolute; top: 0; left: 0; z-index: 1;
-  width: 520px; height: 520px;
-  margin: -260px 0 0 -260px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(217, 169, 95, 0.15) 0%, transparent 65%);
-  filter: blur(18px);
-  pointer-events: none;
-  will-change: transform;
-}
 
 .hero-inner {
   position: relative; z-index: 2;

@@ -144,10 +144,7 @@ function VelocityMarquee() {
 }
 
 export default function Hero() {
-  const sectionRef = useRef(null);
-  const finePointer = useRef(true);
   const reduced = useReducedMotion();
-  const [glowOn, setGlowOn] = useState(false);
 
   const { scrollYProgress } = useScroll({ offset: ["start start", "end start"] });
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
@@ -155,27 +152,8 @@ export default function Hero() {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
-  /* Cursor glow — spotlight i hollë që ndjek mausin */
-  const glowX = useMotionValue(-600);
-  const glowY = useMotionValue(-600);
-  const glowSX = useSpring(glowX, { stiffness: 55, damping: 18 });
-  const glowSY = useSpring(glowY, { stiffness: 55, damping: 18 });
-
-  useEffect(() => {
-    finePointer.current = window.matchMedia("(pointer: fine)").matches;
-  }, []);
-
-  const handleMouseMove = (e) => {
-    if (reduced || !finePointer.current) return;
-    const rect = sectionRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    glowX.set(e.clientX - rect.left);
-    glowY.set(e.clientY - rect.top);
-    if (!glowOn) setGlowOn(true);
-  };
-
   return (
-    <section className="hero" id="kryefaqja" ref={sectionRef} onMouseMove={handleMouseMove}>
+    <section className="hero" id="kryefaqja">
       {/* Ken Burns i butë (scale settle) + parallax në scroll */}
       <motion.div
         style={{ position: "absolute", inset: 0, zIndex: 0 }}
@@ -193,11 +171,6 @@ export default function Hero() {
         </motion.div>
       </motion.div>
       <div className="hero-overlay" />
-
-      {/* Spotlight i hollë pas kursorit */}
-      {glowOn && !reduced && (
-        <motion.div className="hero-glow" style={{ x: glowSX, y: glowSY }} aria-hidden="true" />
-      )}
 
       <motion.div
         className="container hero-inner"
