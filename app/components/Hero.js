@@ -211,11 +211,11 @@ export default function Hero() {
         </motion.span>
 
         <motion.h1 variants={titleStagger}>
-          <MaskWord>Drurë{"\u00A0"}</MaskWord>
-          <MaskWord>për{"\u00A0"}</MaskWord>
-          <MaskWord em>ndërtim.</MaskWord>
+          <MaskWord>Lëndë{"\u00A0"}</MaskWord>
+          <MaskWord em>drusore</MaskWord>
           <br />
-          <MaskWord>Pa{"\u00A0"}kompromis.</MaskWord>
+          <MaskWord>e{"\u00A0"}thatë,{"\u00A0"}</MaskWord>
+          <MaskWord>e{"\u00A0"}përzgjedhur.</MaskWord>
         </motion.h1>
 
         <motion.p className="lead" variants={item}>
