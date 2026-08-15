@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kristi985.github.io/ndue-prenga/sitemap.xml
+Sitemap: https://prenga.al/sitemap.xml
