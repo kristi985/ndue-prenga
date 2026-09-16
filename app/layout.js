@@ -1,6 +1,5 @@
 import { Archivo, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import ThemeProvider from "./components/ThemeProvider";
 import WhatsAppButton from "./components/WhatsAppButton";
 import CookieBanner from "./components/CookieBanner";
 
@@ -118,12 +117,12 @@ const businessJsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="sq" className={`${inter.variable} ${archivo.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+    <html lang="sq" className={`${inter.variable} ${archivo.variable} ${jetbrainsMono.variable}`}>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }} />
       </head>
       <body>
-        <ThemeProvider>{children}<WhatsAppButton /><CookieBanner /></ThemeProvider>
+        {children}<WhatsAppButton /><CookieBanner />
       </body>
     </html>
   );

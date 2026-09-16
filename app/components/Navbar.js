@@ -3,7 +3,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent, useReducedMotion } from "motion/react";
 import Logo from "./Logo";
-import ThemeToggle from "./ThemeToggle";
 import MagneticButton from "./MagneticButton";
 
 const LINKS = [
@@ -95,7 +94,6 @@ export default function Navbar() {
           <MagneticButton href="tel:+355682006400" variant="none" className="nav-phone" strength={0.25}>
             +355 68 200 6400
           </MagneticButton>
-          <ThemeToggle />
           <button
             ref={toggleRef}
             type="button"
