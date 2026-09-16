@@ -70,7 +70,7 @@ export default function Contact() {
           <form className="contact-form" onSubmit={handleSubmit}>
             {sent && (
               <div className="form-success">
-                ✓ Faleminderit! Po hapim WhatsApp me kërkesën tuaj — shtypni "Dërgo" aty.
+                ✓ Faleminderit! Po hapim WhatsApp me kërkesën tuaj — shtypni &quot;Dërgo&quot; aty.
               </div>
             )}
 
@@ -96,12 +96,12 @@ export default function Contact() {
                 <select id="produkti" name="produkti" defaultValue="">
                   <option value="" disabled>Zgjidh...</option>
                   <option>Betoforme</option>
-                  <option>Binarë / Trarë</option>
-                  <option>Lëndë Druri e Thatë</option>
-                  <option>Lëndë për kulme</option>
-                  <option>Binarë Çatie</option>
-                  <option>Tjegull Mladost</option>
-                  <option>Presë sipas kërkesës</option>
+                  <option>Binarë suedezë dhe tavanore</option>
+                  <option>Binarë dhe trarë për çati</option>
+                  <option>Tjegulla Mladost</option>
+                  <option>Lëndë druri e thatë</option>
+                  <option>Ristela druri</option>
+                  <option>Prerje sipas përmasave</option>
                   <option>Tjetër / Shumë lloje</option>
                 </select>
               </div>

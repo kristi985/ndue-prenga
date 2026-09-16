@@ -41,10 +41,10 @@ const titleStagger = {
 
 const MARQUEE = [
   "Betoforme",
-  "Binarë Suedes",
+  "Binarë suedezë",
   "Trarë Çatie",
   "Lëndë e Thatë",
-  "Ristel",
+  "Ristela druri",
   "Tendë Druri",
   "Tjegulla",
 ];
@@ -185,15 +185,16 @@ export default function Hero() {
 
         <motion.h1 variants={titleStagger}>
           <MaskWord>Lëndë{"\u00A0"}</MaskWord>
-          <MaskWord em>drusore</MaskWord>
+          <MaskWord em>druri</MaskWord>
           <br />
-          <MaskWord>e{"\u00A0"}thatë,{"\u00A0"}</MaskWord>
-          <MaskWord>e{"\u00A0"}përzgjedhur.</MaskWord>
+          <MaskWord>për{"\u00A0"}ndërtim{"\u00A0"}</MaskWord>
+          <MaskWord>dhe{"\u00A0"}</MaskWord>
+          <MaskWord>marangozëri.</MaskWord>
         </motion.h1>
 
         <motion.p className="lead" variants={item}>
-          Furnizojmë kantieret dhe marangozët me lëndë druri të përzgjedhur —
-          të tharë, të klasifikuar dhe gati për punë. Çmime të drejta, dorëzim në vend.
+          Betoforme, binarë, trarë dhe dërrasa për kantierin ose punishten tuaj.
+          Na tregoni materialin, përmasat dhe sasinë që ju nevojitet për të marrë një ofertë.
         </motion.p>
 
         <motion.div className="hero-actions" variants={item}>
@@ -222,7 +223,7 @@ export default function Hero() {
           </div>
           <div className="hero-stat">
             <div className="num"><Counter value={180} suffix="+" /></div>
-            <div className="label">Klientë të besueshëm</div>
+            <div className="label">Klientë që na besojnë</div>
           </div>
           <div className="hero-stat">
             <div className="num">100%</div>

@@ -372,7 +372,8 @@ html.light .mobile-menu { background-color: rgba(250, 245, 236, 0.97); }
 .hero-eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--signal); }
 
 .hero h1 {
-  font-size: clamp(2.1rem, 8.6vw, 7.6rem);
+  max-width: 1120px;
+  font-size: clamp(1.5rem, 7.8vw, 7rem);
   font-weight: 900; line-height: 0.9; letter-spacing: -0.025em;
   text-transform: uppercase;
   overflow-wrap: break-word;

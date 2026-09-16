@@ -63,9 +63,9 @@ export default function Footer() {
             <h4>Produktet</h4>
             <ul>
               <li><a href="#produktet">Betoforme</a></li>
-              <li><a href="#produktet">Binarë & Trarë</a></li>
+              <li><a href="#produktet">Binarë dhe trarë</a></li>
               <li><a href="#produktet">Dërrasa</a></li>
-              <li><a href="#produktet">Presë speciale</a></li>
+              <li><a href="#produktet">Prerje sipas përmasave</a></li>
             </ul>
           </div>
 

@@ -14,43 +14,43 @@ const PRODUCTS = [
     tag: "Më i kërkuari",
     title: "Betoforme",
     img: BP + "/images/betoforme.jpg",
-    desc: "Betoforme me rimeso ahu (birch plywood) me film fenolik 120 g/m² në të dyja anët. Bërthamë nga shtresa ahu të kryqëzuara me ngjitje BFU 100 — për sipërfaqe betoni me cilësi të lartë.",
+    desc: "Panele me veshje fenolike në të dyja anët, për kallëpe betoni. Na kontaktoni për përmasat, trashësinë dhe sasinë që i përshtatet projektit tuaj.",
   },
   {
     tag: "Për strukturë",
-    title: "Binar Suedes & Tavanore",
+    title: "Binarë suedezë dhe tavanore",
     img: BP + "/images/binare.jpg",
-    desc: "Materiale për çati druri — binar suedes dhe tavanore me puthitje femër-mashkull nga pishe suedeze. Të tharë në furrë, të zgjedhur dhe të niveluar me kujdes për struktura të qëndrueshme dhe montim të pastër.",
+    desc: "Binarë druri për çati dhe tavanore me bashkim femër–mashkull për veshjen e tavaneve. Lëndë e tharë dhe e përpunuar për montim të rregullt.",
   },
   {
     tag: "Për çati",
-    title: "Binarë & Trarë për Çati",
+    title: "Binarë dhe trarë për çati",
     images: [BP + "/images/binar-cati.jpg", BP + "/images/trare-cati.jpg"],
-    desc: "Binarë dhe trarë për çati druri — të tharë dhe të klasifikuar për strukturat mbajtëse të kulmeve. Të përzgjedhur për qëndrueshmëri dhe rezistencë në mot.",
+    desc: "Lëndë druri për realizimin e strukturave të çative. Na dërgoni gjatësinë, përmasat e prerjes dhe sasinë e kërkuar për një ofertë të përshtatur.",
   },
   {
     tag: "Për kulme",
-    title: "Tjegull Mladost — Kafe & e Zezë",
+    title: "Tjegulla Mladost",
     img: BP + "/images/tjegull-mladost.jpg",
-    desc: "Tjegulla origjinale Mladost në dy ngjyra — kafe dhe e zezë. Rezistente ndaj motit, ngricave dhe rrezetimit UV, në paketim origjinal nga fabrika. Gati për dorëzim në sasi të vogla e të mëdha.",
+    desc: "Tjegulla Mladost në ngjyrë kafe dhe të zezë, për mbulimin e çative. Na kontaktoni për modelin dhe sasinë që ju nevojitet.",
   },
   {
     tag: "Universale",
-    title: "Lëndë Druri e Thatë me Përmasa të Ndryshme",
+    title: "Lëndë druri e thatë",
     images: [BP + "/images/derrasa.jpg", BP + "/images/derrasa-2.jpg", BP + "/images/derrasa-3.jpg"],
-    desc: "E tharë industrialisht — nuk kërcelet dhe nuk deformohet me lagështinë. Ideale për dyer, korniza dhe panelime, e lëmuar në të dyja anët dhe gati për punë.",
+    desc: "Lëndë druri e thatë në përmasa të ndryshme, për punime marangozërie, dyer, korniza dhe veshje. Përzgjidhni materialin sipas nevojave të punimit tuaj.",
   },
   {
     tag: "Për dysheme",
-    title: "Ristel me Dimensione",
+    title: "Ristela druri",
     img: BP + "/images/ristel.jpg",
-    desc: "Ristel druri me dimensione të ndryshme — për dysheme, ndarje kati dhe struktura të lehta. E tharë dhe e lëmuar, gati për montim në ambiente të brendshme dhe të jashtme.",
+    desc: "Ristela druri në përmasa të ndryshme, për punime të brendshme dhe struktura të lehta. Na tregoni përmasat dhe sasinë e kërkuar.",
   },
   {
     tag: "Special",
-    title: "Prerje sipas kërkesës",
+    title: "Prerje sipas përmasave",
     img: BP + "/images/presa.jpg",
-    desc: "Prerje druri në përmasa, trashësi dhe profile specifike për projektin tënd. Saktësi e lartë dhe përshtatje e plotë me kërkesat e kantierit.",
+    desc: "Prerje druri sipas kërkesave të projektit tuaj. Dërgoni listën e përmasave dhe sasive që të konfirmojmë mundësinë e realizimit dhe çmimin.",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function Products() {
             <AnimatedHeading text="Produktet tona të drurit" className="section-title" />
           </div>
           <p className="section-sub">
-            Nga betoformja te binarët strukturor — çdo lloj lënde druri që i
+            Nga betoformja te binarët strukturorë — çdo lloj lënde druri që i
             nevojitet kantierit tënd, në një vend.
           </p>
         </Reveal>
