@@ -1,116 +1,69 @@
-"use client";
-
-import { useRef } from "react";
 import Image from "next/image";
-import { useInView } from "motion/react";
 import Counter from "./Counter";
 import MagneticButton from "./MagneticButton";
 
 const BP = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-const MARQUEE = [
-  "Betoforme",
-  "Binarë suedezë",
-  "Trarë Çatie",
-  "Lëndë e Thatë",
-  "Ristela druri",
-  "Tendë Druri",
-  "Tjegulla",
-];
-
-function MaskWord({ children, em = false }) {
-  return <span style={{ display: "inline-block" }}>{em ? <em>{children}</em> : children}</span>;
-}
-
-function ProductMarquee() {
-  const ref = useRef(null);
-  const visible = useInView(ref);
-  return (
-    <div className="marquee" ref={ref} aria-hidden="true">
-      <div className="marquee-track" style={{ animationPlayState: visible ? "running" : "paused" }}>
-        {[...MARQUEE, ...MARQUEE].map((m, i) => (
-          <span className="marquee-item" key={i}>{m} <i>✦</i></span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function Hero() {
   return (
     <section className="hero" id="kryefaqja">
-      <div className="hero-bg">
-          <Image
-            src={BP + "/images/hero-lumber.jpg"}
-            alt="Lëndë druri — pirg dërrasash"
-            fill priority sizes="100vw"
-            style={{ objectFit: "cover", objectPosition: "center" }}
-          />
-      </div>
-      <div className="hero-overlay" />
-
-      <div className="container hero-inner">
-        <span className="hero-eyebrow">
-          Furnizim lënde druri — betoforme · binarë · dërrasa
-        </span>
-
-        <h1>
-          <MaskWord>Lëndë{"\u00A0"}</MaskWord>
-          <MaskWord em>druri</MaskWord>
-          <br />
-          <MaskWord>për{"\u00A0"}ndërtim{"\u00A0"}</MaskWord>
-          <MaskWord>dhe{"\u00A0"}</MaskWord>
-          <MaskWord>marangozëri.</MaskWord>
-        </h1>
-
-        <p className="lead">
-          Betoforme, binarë, trarë dhe dërrasa për kantierin ose punishten tuaj.
-          Na tregoni materialin, përmasat dhe sasinë që ju nevojitet për të marrë një ofertë.
-        </p>
-
-        <div className="hero-actions">
-          <MagneticButton
-            href="https://wa.me/355682006400?text=P%C3%ABrsh%C3%ABndetje!%20D%C3%ABshiroj%20nj%C3%AB%20ofert%C3%AB%20p%C3%ABr%20l%C3%ABnd%C3%AB%20druri."
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="wa"
-            size="lg"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      <div className="container hero-layout">
+        <div className="hero-copy">
+          <span className="eyebrow">Ndue Prenga · Lëndë druri</span>
+          <h1>Druri <em>i duhur.</em><br />Për projektin tuaj.</h1>
+          <p className="lead">
+            Lëndë druri për ndërtim dhe marangozëri. Nga betoformja te binarët
+            dhe dërrasat, gjeni materialin që i duhet punës suaj.
+          </p>
+          <div className="hero-actions">
+            <MagneticButton
+              href="https://wa.me/355682006400?text=P%C3%ABrsh%C3%ABndetje!%20D%C3%ABshiroj%20nj%C3%AB%20ofert%C3%AB%20p%C3%ABr%20l%C3%ABnd%C3%AB%20druri."
+              target="_blank" rel="noopener noreferrer" variant="primary" size="lg"
+              strength={0.12}
+            >
+              Kërko ofertë <span className="btn-ico" aria-hidden="true">↗</span>
+            </MagneticButton>
+            <a href="#produktet" className="hero-catalog-link">
+              Eksploro produktet <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+          <p className="hero-location">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" />
             </svg>
-            Kërko ofertë në WhatsApp
-          </MagneticButton>
-          <MagneticButton href="#produktet" variant="ghost" size="lg">
-            Shiko produktet
-            <span className="btn-ico">↓</span>
-          </MagneticButton>
+            SH56 · Vaqarr, Tiranë
+          </p>
         </div>
-
-        <div className="hero-stats">
-          <div className="hero-stat">
-            <div className="num"><Counter value={15} suffix="+" /></div>
-            <div className="label">Vite eksperiencë</div>
+        <figure className="hero-visual">
+          <div className="measure-rule" aria-hidden="true"><span>00</span><span>10</span><span>20</span><span>30</span></div>
+          <div className="hero-photo">
+            <Image
+              src={BP + "/images/binare.jpg"} alt="Binarë druri të stivuar, me strukturën e drurit në plan të afërt"
+              fill priority sizes="(max-width: 800px) 100vw, 55vw"
+              style={{ objectFit: "cover", objectPosition: "64% center" }}
+            />
+            <a href="#produktet" className="hero-photo-label">
+              <span><small>Nga katalogu ynë</small><strong>Binarë druri</strong></span>
+              <span className="hero-photo-arrow" aria-hidden="true">↗</span>
+            </a>
           </div>
-          <div className="hero-stat">
-            <div className="num"><Counter value={180} suffix="+" /></div>
-            <div className="label">Klientë që na besojnë</div>
-          </div>
-          <div className="hero-stat">
-            <div className="num">100%</div>
-            <div className="label">Lëndë e garantuar</div>
-          </div>
+          <figcaption className="hero-caption"><span>Materiali bën diferencën.</span><span>NP / 01</span></figcaption>
+        </figure>
+      </div>
+      <div className="container hero-bottom">
+        <div className="hero-stat">
+          <strong className="num"><Counter value={15} suffix="+" duration={1} /></strong>
+          <span className="label">vite eksperiencë</span>
+        </div>
+        <div className="hero-stat">
+          <strong className="num"><Counter value={180} suffix="+" duration={1} /></strong>
+          <span className="label">klientë që na besojnë</span>
+        </div>
+        <div className="hero-service">
+          <span className="hero-service-mark" aria-hidden="true">↗</span>
+          <span>Projekti juaj, përmasat tuaja.<br /><a href="#kontakt">Prerje sipas kërkesës</a></span>
         </div>
       </div>
-
-      <div className="hero-meta">
-        <span>41.3076°N / 19.7575°E</span>
-        <span>SH56 · Vaqarr · Tiranë</span>
-        <span>Hënë–Shtunë 08:00–17:00</span>
-        <a href="tel:+355682006400">Tel +355 68 200 6400</a>
-      </div>
-
-      <ProductMarquee />
     </section>
   );
 }

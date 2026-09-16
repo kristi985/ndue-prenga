@@ -74,7 +74,8 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Kompania</h4>
             <ul>
-              <li><a href="#perse-ne">Pse ne</a></li>
+              <li><a href="#rreth-nesh">Rreth nesh</a></li>
+              <li><a href="#galeria">Galeria</a></li>
               <li><a href="#procesi">Procesi</a></li>
               <li><a href="#kontakt">Kontakt</a></li>
             </ul>

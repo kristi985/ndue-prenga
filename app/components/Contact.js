@@ -27,8 +27,8 @@ export default function Contact() {
     <section className="section contact" id="kontakt">
       <div className="container contact-grid">
         <div className="contact-info">
-          <span className="eyebrow">05 — Kontakt</span>
-          <h2 className="section-title" style={{ marginBottom: 22 }}>Le të flasim për projektin tënd</h2>
+          <span className="eyebrow">Le të fillojmë</span>
+          <h2 className="section-title" style={{ marginBottom: 22 }}>Projekti juaj fillon me një bisedë.</h2>
           <p>
             Na shkruani për llojin, sasinë dhe afatin e drurit që ju duhet.
             Përgjigjemi brenda 24 orëve me ofertë të qartë.
@@ -68,6 +68,10 @@ export default function Contact() {
 
         <div className="contact-form-wrap">
           <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-heading">
+              <h3>Kërkoni një ofertë</h3>
+              <p>Plotësoni detajet. Kërkesa hapet në WhatsApp.</p>
+            </div>
             {sent && (
               <div className="form-success">
                 ✓ Faleminderit! Po hapim WhatsApp me kërkesën tuaj — shtypni &quot;Dërgo&quot; aty.
@@ -77,17 +81,17 @@ export default function Contact() {
             <div className="form-row">
               <div className="field">
                 <label htmlFor="emri">Emri juaj</label>
-                <input id="emri" name="emri" type="text" placeholder="Emri Mbiemri" required />
+                <input id="emri" name="emri" type="text" autoComplete="name" placeholder="Emri Mbiemri" required />
               </div>
               <div className="field">
                 <label htmlFor="tel">Telefon</label>
-                <input id="tel" name="tel" type="tel" placeholder="+355..." required />
+                <input id="tel" name="tel" type="tel" autoComplete="tel" placeholder="+355..." required />
               </div>
             </div>
 
             <div className="field">
               <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="ju@shembull.al" />
+              <input id="email" name="email" type="email" autoComplete="email" placeholder="ju@shembull.al" />
             </div>
 
             <div className="form-row">

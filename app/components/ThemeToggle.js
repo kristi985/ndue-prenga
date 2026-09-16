@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 const subscribe = () => () => {};
 const getClientSnapshot = () => true;
@@ -11,12 +11,14 @@ const getServerSnapshot = () => false;
 export default function ThemeToggle() {
   const { theme, resolvedTheme, forcedTheme, setTheme } = useTheme();
   const mounted = useSyncExternalStore(subscribe, getClientSnapshot, getServerSnapshot);
+  const reduceMotion = useReducedMotion();
 
   if (!mounted) {
-    return <span style={{ width: 42, height: 42, display: "inline-block" }} />;
+    return <span aria-hidden="true" style={{ width: 42, height: 42, display: "inline-block" }} />;
   }
 
   const isDark = (forcedTheme ?? resolvedTheme ?? theme) === "dark";
+  const label = isDark ? "Aktivizo pamjen e çelët" : "Aktivizo pamjen e errët";
 
   return (
     <button
@@ -24,34 +26,36 @@ export default function ThemeToggle() {
       className="theme-toggle"
       disabled={Boolean(forcedTheme)}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label={isDark ? "Kalo në light mode" : "Kalo në dark mode"}
-      title={isDark ? "Light mode" : "Dark mode"}
+      aria-label={label}
+      title={label}
     >
-      <AnimatePresence mode="wait" initial={false}>
+      <motion.span
+        key={isDark ? "sun" : "moon"}
+        initial={reduceMotion ? false : { opacity: 0.6 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: reduceMotion ? 0 : 0.15 }}
+        style={{ display: "grid", placeItems: "center" }}
+        aria-hidden="true"
+      >
         {isDark ? (
-          <motion.span
-            key="sun"
-            initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
-            animate={{ rotate: 0, opacity: 1, scale: 1 }}
-            exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
-            transition={{ duration: 0.25 }}
-            style={{ display: "grid", placeItems: "center" }}
+          <svg
+            width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" strokeWidth="1.6"
+            strokeLinecap="round" strokeLinejoin="round" focusable="false"
           >
-            ☀️
-          </motion.span>
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42" />
+          </svg>
         ) : (
-          <motion.span
-            key="moon"
-            initial={{ rotate: 90, opacity: 0, scale: 0.5 }}
-            animate={{ rotate: 0, opacity: 1, scale: 1 }}
-            exit={{ rotate: -90, opacity: 0, scale: 0.5 }}
-            transition={{ duration: 0.25 }}
-            style={{ display: "grid", placeItems: "center" }}
+          <svg
+            width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" strokeWidth="1.6"
+            strokeLinecap="round" strokeLinejoin="round" focusable="false"
           >
-            🌙
-          </motion.span>
+            <path d="M20.9 13.15A9 9 0 0 1 10.85 3.1a9 9 0 1 0 10.05 10.05Z" />
+          </svg>
         )}
-      </AnimatePresence>
+      </motion.span>
     </button>
   );
 }

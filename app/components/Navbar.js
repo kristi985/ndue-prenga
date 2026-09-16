@@ -8,8 +8,8 @@ import MagneticButton from "./MagneticButton";
 
 const LINKS = [
   { href: "#produktet", label: "Produktet", n: "01" },
-  { href: "#perse-ne", label: "Pse ne", n: "02" },
-  { href: "#procesi", label: "Procesi", n: "03" },
+  { href: "#rreth-nesh", label: "Rreth nesh", n: "02" },
+  { href: "#galeria", label: "Galeria", n: "03" },
   { href: "#kontakt", label: "Kontakt", n: "04" },
 ];
 

@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { useId, useState } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 
 const faqs = [
   {
@@ -36,13 +36,15 @@ const faqs = [
 
 export default function FAQ() {
   const [open, setOpen] = useState(null);
+  const id = useId();
+  const reduceMotion = useReducedMotion();
 
   return (
     <section className="section faq" id="faq">
       <div className="container">
         <div className="section-head">
           <div className="sh-left">
-            <span className="eyebrow">04 — FAQ</span>
+            <span className="eyebrow">Përpara porosisë</span>
             <h2 className="section-title">Pyetje të Shpeshta</h2>
           </div>
           <p className="section-sub">
@@ -51,40 +53,45 @@ export default function FAQ() {
         </div>
 
         <div className="faq-list">
-          {faqs.map((faq, i) => (
-            <motion.div
-              key={i}
-              className={`faq-item ${open === i ? 'open' : ''}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ delay: i * 0.08 }}
-            >
-              <button
-                className="faq-question"
-                onClick={() => setOpen(open === i ? null : i)}
-              >
-                <span className="faq-num">{String(i + 1).padStart(2, '0')}</span>
-                <span className="faq-q">{faq.q}</span>
-                <span className={`faq-icon ${open === i ? 'rotated' : ''}`} aria-hidden="true">
-                  +
-                </span>
-              </button>
-              <AnimatePresence initial={false}>
-                {open === i && (
-                  <motion.div
-                    className="faq-answer"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.28, ease: 'easeInOut' }}
+          {faqs.map((faq, i) => {
+            const isOpen = open === i;
+            const questionId = `${id}-question-${i}`;
+            const answerId = `${id}-answer-${i}`;
+
+            return (
+              <div key={faq.q} className={`faq-item ${isOpen ? 'open' : ''}`}>
+                <h3 className="faq-heading">
+                  <button
+                    type="button"
+                    id={questionId}
+                    className="faq-question"
+                    aria-expanded={isOpen}
+                    aria-controls={answerId}
+                    onClick={() => setOpen(isOpen ? null : i)}
                   >
-                    <p>{faq.a}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                    <span className="faq-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="faq-q">{faq.q}</span>
+                    <span className={`faq-icon ${isOpen ? 'rotated' : ''}`} aria-hidden="true">
+                      +
+                    </span>
+                  </button>
+                </h3>
+                <motion.div
+                  id={answerId}
+                  role="region"
+                  aria-labelledby={questionId}
+                  aria-hidden={!isOpen}
+                  inert={!isOpen}
+                  className="faq-answer"
+                  initial={false}
+                  animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+                  transition={{ duration: reduceMotion ? 0 : 0.2, ease: 'easeInOut' }}
+                >
+                  <p>{faq.a}</p>
+                </motion.div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
