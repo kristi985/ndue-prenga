@@ -1,44 +1,120 @@
 "use client";
 
-import { useState } from "react";
+import { useReducer } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
+
+const INITIAL_STATE = { index: 0, requested: 0, loaded: [], failed: [] };
+
+function selectImage(state, requested) {
+  return {
+    ...state,
+    requested,
+    index: state.loaded.includes(requested) ? requested : state.index,
+  };
+}
+
+function carouselReducer(state, action) {
+  switch (action.type) {
+    case "select":
+      return selectImage(state, action.index);
+    case "move":
+      return selectImage(state, (state.requested + action.direction + action.total) % action.total);
+    case "loaded": {
+      const showImage = state.requested === action.index ||
+        (state.failed.includes(state.requested) && !state.loaded.includes(state.index));
+      return {
+        ...state,
+        index: showImage ? action.index : state.index,
+        loaded: state.loaded.includes(action.index) ? state.loaded : [...state.loaded, action.index],
+        failed: state.failed.filter((index) => index !== action.index),
+      };
+    }
+    case "failed":
+      return {
+        ...state,
+        index: state.index === action.index
+          ? (state.loaded.find((index) => index !== action.index) ?? state.index)
+          : state.index,
+        loaded: state.loaded.filter((index) => index !== action.index),
+        failed: state.failed.includes(action.index) ? state.failed : [...state.failed, action.index],
+      };
+    default:
+      return state;
+  }
+}
 
 /**
  * Karrusel me shigjeta për produktet me disa foto.
  */
 export default function ProductCarousel({ images, alt }) {
-  const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
+  const [state, dispatch] = useReducer(carouselReducer, INITIAL_STATE);
+  const { index, requested, failed } = state;
+  const reduceMotion = useReducedMotion();
 
   const total = images.length;
 
   const go = (dir) => {
-    setDirection(dir);
-    setIndex((prev) => (prev + dir + total) % total);
+    dispatch({ type: "move", direction: dir, total });
+  };
+
+  const onKeyDown = (event) => {
+    if (total < 2 || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+
+    switch (event.key) {
+      case "ArrowLeft":
+        go(-1);
+        break;
+      case "ArrowRight":
+        go(1);
+        break;
+      case "Home":
+        dispatch({ type: "select", index: 0 });
+        break;
+      case "End":
+        dispatch({ type: "select", index: total - 1 });
+        break;
+      default:
+        return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
   };
 
   return (
-    <div className="product-thumb carousel-thumb">
-      <AnimatePresence initial={false} custom={direction} mode="wait">
+    <div
+      className="product-thumb carousel-thumb"
+      role="group"
+      aria-roledescription="karusel"
+      aria-label={alt}
+      aria-busy={requested !== index && !failed.includes(requested)}
+      tabIndex={total > 1 ? 0 : undefined}
+      onKeyDown={onKeyDown}
+    >
+      {/* Keep the current photo visible until the requested photo is loaded. */}
+      {images.map((src, i) => (
         <motion.div
-          key={index}
+          key={src}
           className="carousel-slide"
-          custom={direction}
-          initial={{ opacity: 0, x: direction > 0 ? 60 : -60 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: direction > 0 ? -60 : 60 }}
-          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          aria-hidden={i !== index}
+          initial={false}
+          animate={{ opacity: i === index ? 1 : 0 }}
+          transition={{ duration: reduceMotion ? 0 : 0.18, ease: "easeOut" }}
+          style={{ pointerEvents: "none" }}
         >
           <Image
-            src={images[index]}
-            alt={`${alt} - foto ${index + 1}`}
+            src={src}
+            alt={`${alt} - foto ${i + 1}`}
             fill
-            sizes="(max-width: 620px) 100vw, (max-width: 940px) 50vw, 33vw"
+            loading="lazy"
+            sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw"
             style={{ objectFit: "cover" }}
+            onLoad={() => dispatch({ type: "loaded", index: i })}
+            onError={() => dispatch({ type: "failed", index: i })}
           />
         </motion.div>
-      </AnimatePresence>
+      ))}
 
       {/* Shtresa e errët poshtë (si karta të tjera) */}
       <div className="carousel-overlay" />
@@ -47,6 +123,7 @@ export default function ProductCarousel({ images, alt }) {
       {total > 1 && (
         <>
           <button
+            type="button"
             className="carousel-arrow carousel-arrow-prev"
             onClick={(e) => {
               e.preventDefault();
@@ -62,6 +139,7 @@ export default function ProductCarousel({ images, alt }) {
 
           {/* Shigjeta djathtas */}
           <button
+            type="button"
             className="carousel-arrow carousel-arrow-next"
             onClick={(e) => {
               e.preventDefault();
@@ -80,14 +158,15 @@ export default function ProductCarousel({ images, alt }) {
             {images.map((_, i) => (
               <button
                 key={i}
+                type="button"
                 className={`carousel-dot ${i === index ? "active" : ""}`}
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  setDirection(i > index ? 1 : -1);
-                  setIndex(i);
+                  dispatch({ type: "select", index: i });
                 }}
-                aria-label={`Foto ${i + 1}`}
+                aria-label={`Foto ${i + 1} nga ${total}`}
+                aria-current={i === index ? "true" : undefined}
               />
             ))}
           </div>

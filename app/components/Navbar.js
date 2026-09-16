@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/react";
+import { useEffect, useId, useRef, useState } from "react";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent, useReducedMotion } from "motion/react";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 import MagneticButton from "./MagneticButton";
@@ -17,26 +17,63 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const toggleRef = useRef(null);
+  const directionRef = useRef(0);
+  const anchorRef = useRef(0);
+  const menuId = useId();
+  const reduceMotion = useReducedMotion();
 
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (y) => {
     const prev = scrollY.getPrevious() ?? 0;
     setScrolled(y > 8);
-    if (open) {
+    if (open || focused || reduceMotion || y <= 160) {
       setHidden(false);
+      anchorRef.current = y;
+      directionRef.current = 0;
       return;
     }
-    if (y > prev && y > 160) setHidden(true);
-    else if (y < prev) setHidden(false);
+
+    const direction = Math.sign(y - prev);
+    if (!direction) return;
+    if (direction !== directionRef.current) {
+      directionRef.current = direction;
+      anchorRef.current = prev;
+    }
+    // Require deliberate movement in one direction instead of 1px jitter.
+    if (Math.abs(y - anchorRef.current) < 20) return;
+    setHidden(direction > 0);
+    anchorRef.current = y;
   });
+
+  useEffect(() => {
+    if (!open) return;
+    const handleEscape = (event) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      setOpen(false);
+      setHidden(false);
+      toggleRef.current?.focus();
+    };
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [open]);
 
   return (
     <motion.header
       className={`navbar ${scrolled ? "scrolled" : ""}`}
-      initial={{ y: "-110%", opacity: 0 }}
-      animate={{ y: hidden ? "-110%" : "0%", opacity: 1 }}
-      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      initial={false}
+      animate={{ y: hidden && !open && !focused && !reduceMotion ? "-110%" : "0%", opacity: 1 }}
+      transition={{ duration: reduceMotion ? 0 : 0.22, ease: [0.22, 1, 0.36, 1] }}
+      onFocusCapture={() => {
+        setFocused(true);
+        setHidden(false);
+      }}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
+      }}
     >
       <div className="nav-pill">
         <a href="#kryefaqja" className="brand" onClick={() => setOpen(false)}>
@@ -60,8 +97,12 @@ export default function Navbar() {
           </MagneticButton>
           <ThemeToggle />
           <button
+            ref={toggleRef}
+            type="button"
             className="nav-toggle"
             aria-label="Menu"
+            aria-expanded={open}
+            aria-controls={menuId}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? "✕" : "☰"}
@@ -72,11 +113,12 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            id={menuId}
             className="mobile-menu"
-            initial={{ height: 0, opacity: 0 }}
+            initial={reduceMotion ? false : { height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: reduceMotion ? 0 : 0.2, ease: [0.22, 1, 0.36, 1] }}
             style={{ overflow: "hidden" }}
           >
             {LINKS.map((l) => (

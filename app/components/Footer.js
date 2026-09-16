@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Logo from "./Logo";
 
 const BP = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -25,10 +26,11 @@ export default function Footer() {
               className="footer-map-link"
               title="Hap hartën në Google Maps"
             >
-              <img
+              <Image
                 src={BP + "/images/harta.jpg"}
                 alt="Harta — NDUE PRENGA, SH56 Tiranë"
-                loading="lazy"
+                fill
+                sizes="(max-width: 1280px) 100vw, 1280px"
                 className="footer-map-img"
               />
             </a>

@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { RevealGroup, RevealItem } from "./Reveal";
 import Counter from "./Counter";
 
@@ -16,17 +15,9 @@ const STATS = [
 ];
 
 export default function Stats() {
-  const bandRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: bandRef,
-    offset: ["start end", "end start"],
-  });
-  /* Parallax i butë në foton e magazinës */
-  const bgY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-
   return (
-    <section className="section stats-band" style={{ paddingBlock: "88px" }} ref={bandRef}>
-      <motion.div className="stats-band-bg" style={{ y: bgY, scale: 1.22 }}>
+    <section className="section stats-band" style={{ paddingBlock: "88px" }}>
+      <div className="stats-band-bg" aria-hidden="true">
         <Image
           src={BP + "/images/magazina.jpg"}
           alt=""
@@ -34,7 +25,7 @@ export default function Stats() {
           sizes="100vw"
           style={{ objectFit: "cover" }}
         />
-      </motion.div>
+      </div>
       <div className="container">
         <RevealGroup className="stats-grid">
           {STATS.map((s) => (

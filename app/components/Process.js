@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import Reveal, { RevealGroup, RevealItem } from "./Reveal";
 import AnimatedHeading from "./AnimatedHeading";
 import MagneticButton from "./MagneticButton";
@@ -17,14 +16,6 @@ const STEPS = [
 ];
 
 export default function Process() {
-  const ctaRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ctaRef,
-    offset: ["start end", "end start"],
-  });
-  /* Parallax i butë në foton e CTA banner-it */
-  const bgY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
-
   return (
     <section className="section process" id="procesi">
       <div className="container">
@@ -56,16 +47,9 @@ export default function Process() {
         </RevealGroup>
 
         <Reveal>
-          <motion.div
-            className="cta-banner"
-            ref={ctaRef}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
+          <div className="cta-banner">
             <div className="cta-banner-inner">
-              <motion.div className="cta-banner-bg" style={{ y: bgY }} aria-hidden="true">
+              <div className="cta-banner-bg" aria-hidden="true">
                 <Image
                   src={BP + "/images/galeri-logs.jpg"}
                   alt=""
@@ -73,7 +57,7 @@ export default function Process() {
                   sizes="(max-width: 1280px) 100vw, 1280px"
                   style={{ objectFit: "cover" }}
                 />
-              </motion.div>
+              </div>
               <div>
                 <h2>Gati të filloni?</h2>
                 <p>Merrni një ofertë falas sot — pa angazhim.</p>
@@ -85,7 +69,7 @@ export default function Process() {
                 </MagneticButton>
               </div>
             </div>
-          </motion.div>
+          </div>
         </Reveal>
       </div>
     </section>

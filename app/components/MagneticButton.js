@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useMotionValue, useSpring } from "motion/react";
+import { motion, useMotionValue, useReducedMotion, useSpring } from "motion/react";
 
 /**
  * Buton "magnetik" — tërhiqet pak nga mausi kur i afrohesh.
@@ -13,6 +13,11 @@ export default function MagneticButton({
   children,
   href,
   onClick,
+  onPointerMove,
+  onPointerLeave,
+  onPointerCancel,
+  onBlur,
+  style,
   variant = "primary",
   size = "md",
   className = "",
@@ -20,6 +25,7 @@ export default function MagneticButton({
   ...rest
 }) {
   const ref = useRef(null);
+  const reduceMotion = useReducedMotion();
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -28,6 +34,8 @@ export default function MagneticButton({
   const springY = useSpring(y, { stiffness: 300, damping: 20 });
 
   const handleMove = (e) => {
+    onPointerMove?.(e);
+    if (e.defaultPrevented || e.pointerType !== "mouse" || reduceMotion || rest.disabled) return;
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
@@ -37,9 +45,29 @@ export default function MagneticButton({
     y.set(relY * strength);
   };
 
-  const handleLeave = () => {
+  const resetPosition = () => {
     x.set(0);
     y.set(0);
+  };
+
+  const wrapperProps = {
+    ...rest,
+    ref,
+    onClick,
+    style: { display: "inline-flex", ...style },
+    onPointerMove: handleMove,
+    onPointerLeave: (event) => {
+      resetPosition();
+      onPointerLeave?.(event);
+    },
+    onPointerCancel: (event) => {
+      resetPosition();
+      onPointerCancel?.(event);
+    },
+    onBlur: (event) => {
+      resetPosition();
+      onBlur?.(event);
+    },
   };
 
   const sizeClass = size === "lg" ? "btn-lg" : "";
@@ -56,22 +84,20 @@ export default function MagneticButton({
 
   const content = (
     <motion.span
-      ref={ref}
       className={`btn ${variantClass} ${sizeClass} ${className}`}
-      style={{ x: springX, y: springY }}
-      onMouseMove={handleMove}
-      onMouseLeave={handleLeave}
-      whileTap={{ scale: 0.96 }}
+      style={{ x: reduceMotion ? 0 : springX, y: reduceMotion ? 0 : springY }}
+      whileTap={reduceMotion ? undefined : { scale: 0.96 }}
+      tabIndex={-1}
     >
       {children}
     </motion.span>
   );
 
   if (href) {
-    return <a href={href} {...rest}>{content}</a>;
+    return <a href={href} {...wrapperProps}>{content}</a>;
   }
   return (
-    <button onClick={onClick} {...rest}>
+    <button type="button" {...wrapperProps}>
       {content}
     </button>
   );

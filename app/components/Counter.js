@@ -2,10 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import {
+  animate,
   motion,
   useInView,
   useMotionValue,
-  useSpring,
+  useReducedMotion,
   useTransform,
 } from "motion/react";
 
@@ -22,23 +23,29 @@ export default function Counter({
 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
+  const reduceMotion = useReducedMotion();
+  // Keep the real value readable before hydration and without JavaScript.
+  const motionValue = useMotionValue(value);
 
-  const motionValue = useMotionValue(0);
-  const spring = useSpring(motionValue, {
-    stiffness: 40,
-    damping: 18,
-    duration,
-  });
-
-  const display = useTransform(spring, (latest) => {
-    return prefix + Math.floor(latest).toLocaleString() + suffix;
+  const display = useTransform(motionValue, (latest) => {
+    return prefix + Math.round(latest).toLocaleString("sq-AL") + suffix;
   });
 
   useEffect(() => {
-    if (inView) {
+    if (reduceMotion || duration <= 0) {
       motionValue.set(value);
+      return;
     }
-  }, [inView, value, motionValue]);
+    if (!inView) return;
+
+    const animation = animate(motionValue, [0, value], {
+      duration,
+      ease: "easeOut",
+      onComplete: () => motionValue.set(value),
+    });
+
+    return () => animation.stop();
+  }, [inView, value, duration, reduceMotion, motionValue]);
 
   return <motion.span ref={ref} className={className}>{display}</motion.span>;
 }

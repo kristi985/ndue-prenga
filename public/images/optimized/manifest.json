@@ -1,0 +1,303 @@
+{
+  "widths": [
+    384,
+    768,
+    1280,
+    1920
+  ],
+  "images": {
+    "/images/hero-lumber.jpg": [
+      {
+        "width": 384,
+        "src": "/images/optimized/hero-lumber-384-96846fa11e4e.webp",
+        "bytes": 4368
+      },
+      {
+        "width": 768,
+        "src": "/images/optimized/hero-lumber-768-438f706482e5.webp",
+        "bytes": 16516
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/hero-lumber-1280-3e0a9a7a78da.webp",
+        "bytes": 52766
+      },
+      {
+        "width": 1920,
+        "src": "/images/optimized/hero-lumber-1920-b65995b09dc2.webp",
+        "bytes": 145146
+      }
+    ],
+    "/images/betoforme.jpg": [
+      {
+        "width": 384,
+        "src": "/images/optimized/betoforme-384-3382e0efd491.webp",
+        "bytes": 6540
+      },
+      {
+        "width": 768,
+        "src": "/images/optimized/betoforme-768-409653d9ee98.webp",
+        "bytes": 20452
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/betoforme-1280-a08948b01a92.webp",
+        "bytes": 50260
+      },
+      {
+        "width": 1536,
+        "src": "/images/optimized/betoforme-1536-7d3495f8be72.webp",
+        "bytes": 70016
+      }
+    ],
+    "/images/binare.jpg": [
+      {
+        "width": 384,
+        "src": "/images/optimized/binare-384-270445c56062.webp",
+        "bytes": 10444
+      },
+      {
+        "width": 768,
+        "src": "/images/optimized/binare-768-e498d649f77d.webp",
+        "bytes": 38874
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/binare-1280-029cfd32ab69.webp",
+        "bytes": 110228
+      },
+      {
+        "width": 1536,
+        "src": "/images/optimized/binare-1536-28c8d4d7ca3b.webp",
+        "bytes": 158870
+      }
+    ],
+    "/images/binar-cati.jpg": [
+      {
+        "width": 384,
+        "src": "/images/optimized/binar-cati-384-6b6374eed5c4.webp",
+        "bytes": 13602
+      },
+      {
+        "width": 768,
+        "src": "/images/optimized/binar-cati-768-2a290b36f918.webp",
+        "bytes": 43088
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/binar-cati-1280-b8e21158b619.webp",
+        "bytes": 103720
+      },
+      {
+        "width": 1536,
+        "src": "/images/optimized/binar-cati-1536-e7965ccd6692.webp",
+        "bytes": 143412
+      }
+    ],
+    "/images/trare-cati.jpg": [
+      {
+        "width": 384,
+        "src": "/images/optimized/trare-cati-384-6d3debe44fab.webp",
+        "bytes": 14634
+      },
+      {
+        "width": 768,
+        "src": "/images/optimized/trare-cati-768-2122668f7634.webp",
+        "bytes": 60088
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/trare-cati-1280-369b4b6f7f50.webp",
+        "bytes": 169744
+      },
+      {
+        "width": 1536,
+        "src": "/images/optimized/trare-cati-1536-f4dc7bada31b.webp",
+        "bytes": 245754
+      }
+    ],
+    "/images/tjegull-mladost.jpg": [
+      {
+        "width": 384,
+        "src": "/images/optimized/tjegull-mladost-384-31cba8134779.webp",
+        "bytes": 21906
+      },
+      {
+        "width": 768,
+        "src": "/images/optimized/tjegull-mladost-768-adc7dc920f39.webp",
+        "bytes": 71514
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/tjegull-mladost-1280-21b3876340e8.webp",
+        "bytes": 157100
+      },
+      {
+        "width": 1536,
+        "src": "/images/optimized/tjegull-mladost-1536-b8df51b819aa.webp",
+        "bytes": 206628
+      }
+    ],
+    "/images/derrasa.jpg": [
+      {
+        "width": 384,
+        "src": "/images/optimized/derrasa-384-c69530c8f010.webp",
+        "bytes": 7598
+      },
+      {
+        "width": 768,
+        "src": "/images/optimized/derrasa-768-b75c170d64c4.webp",
+        "bytes": 26448
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/derrasa-1280-49c1adfd34b9.webp",
+        "bytes": 60860
+      },
+      {
+        "width": 1536,
+        "src": "/images/optimized/derrasa-1536-e104337f165f.webp",
+        "bytes": 85602
+      }
+    ],
+    "/images/derrasa-2.jpg": [
+      {
+        "width": 384,
+        "src": "/images/optimized/derrasa-2-384-87712bceaf50.webp",
+        "bytes": 39242
+      },
+      {
+        "width": 768,
+        "src": "/images/optimized/derrasa-2-768-a2ed2f5a1fb9.webp",
+        "bytes": 131384
+      },
+      {
+        "width": 868,
+        "src": "/images/optimized/derrasa-2-868-819ae0395857.webp",
+        "bytes": 165676
+      }
+    ],
+    "/images/derrasa-3.jpg": [
+      {
+        "width": 384,
+        "src": "/images/optimized/derrasa-3-384-fb5866063372.webp",
+        "bytes": 26388
+      },
+      {
+        "width": 768,
+        "src": "/images/optimized/derrasa-3-768-a321e23f8199.webp",
+        "bytes": 82472
+      },
+      {
+        "width": 1156,
+        "src": "/images/optimized/derrasa-3-1156-d21dc87e4c0d.webp",
+        "bytes": 162006
+      }
+    ],
+    "/images/ristel.jpg": [
+      {
+        "width": 384,
+        "src": "/images/optimized/ristel-384-52d40a7f5095.webp",
+        "bytes": 15678
+      },
+      {
+        "width": 768,
+        "src": "/images/optimized/ristel-768-da0785e1dd12.webp",
+        "bytes": 54980
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/ristel-1280-a06f8881ea42.webp",
+        "bytes": 134496
+      },
+      {
+        "width": 1536,
+        "src": "/images/optimized/ristel-1536-7298c29e473b.webp",
+        "bytes": 190970
+      }
+    ],
+    "/images/presa.jpg": [
+      {
+        "width": 384,
+        "src": "/images/optimized/presa-384-11951b63aae0.webp",
+        "bytes": 16232
+      },
+      {
+        "width": 768,
+        "src": "/images/optimized/presa-768-93d610353e90.webp",
+        "bytes": 51340
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/presa-1280-18ce0d326827.webp",
+        "bytes": 109172
+      },
+      {
+        "width": 1536,
+        "src": "/images/optimized/presa-1536-ccffebb12758.webp",
+        "bytes": 144812
+      }
+    ],
+    "/images/magazina.jpg": [
+      {
+        "width": 384,
+        "src": "/images/optimized/magazina-384-222c38f3cbbf.webp",
+        "bytes": 30046
+      },
+      {
+        "width": 768,
+        "src": "/images/optimized/magazina-768-8c4ee82df86d.webp",
+        "bytes": 103104
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/magazina-1280-d13d515a2904.webp",
+        "bytes": 245132
+      },
+      {
+        "width": 1600,
+        "src": "/images/optimized/magazina-1600-09a95010d746.webp",
+        "bytes": 365250
+      }
+    ],
+    "/images/galeri-logs.jpg": [
+      {
+        "width": 384,
+        "src": "/images/optimized/galeri-logs-384-4ff16bd39d61.webp",
+        "bytes": 21226
+      },
+      {
+        "width": 768,
+        "src": "/images/optimized/galeri-logs-768-1719ea68b635.webp",
+        "bytes": 70748
+      },
+      {
+        "width": 1200,
+        "src": "/images/optimized/galeri-logs-1200-0bf4ae289ee0.webp",
+        "bytes": 141436
+      }
+    ],
+    "/images/harta.jpg": [
+      {
+        "width": 384,
+        "src": "/images/optimized/harta-384-9feb3d9fc5e6.webp",
+        "bytes": 11634
+      },
+      {
+        "width": 768,
+        "src": "/images/optimized/harta-768-00ff24051cf0.webp",
+        "bytes": 39570
+      },
+      {
+        "width": 1280,
+        "src": "/images/optimized/harta-1280-9017b707ff6e.webp",
+        "bytes": 97018
+      },
+      {
+        "width": 1400,
+        "src": "/images/optimized/harta-1400-76d432dd75a3.webp",
+        "bytes": 121824
+      }
+    ]
+  }
+}

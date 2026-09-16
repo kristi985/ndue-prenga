@@ -20,6 +20,26 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Responsive images for static hosting
+
+`npm run images:optimize` creates responsive WebP copies of the photographs listed
+in `scripts/optimize-images.mjs`. It also runs automatically before `npm run dev`
+and `npm run build`. Keep original photographs in `public/images`; the generator
+writes only to `public/images/optimized`.
+
+The custom loader in `app/lib/static-image-loader.js` uses the generated manifest,
+so exported pages need no running image service. The configured widths are 384,
+768, 1280 and 1920 pixels. Each photograph is capped at its original width and is
+never enlarged; requests above that limit reuse its largest available variant.
+Next's responsive width descriptors still reflect its configured target widths.
+Local `NEXT_PUBLIC_BASE_PATH` prefixes and extra path slashes are normalized.
+
+When adding a photograph, add its basename to the generator's `sources` list and
+rerun the command. Unlisted or remote images retain their original URL. Generated
+filenames contain a content hash to invalidate cached photos after edits. The
+generator retains older variants so already-open pages can still request them.
+Keep the width list in the generator and `next.config.mjs` synchronized.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

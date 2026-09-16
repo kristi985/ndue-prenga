@@ -1,24 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "motion/react";
 
-export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+const subscribe = () => () => {};
+const getClientSnapshot = () => true;
+const getServerSnapshot = () => false;
 
-  useEffect(() => setMounted(true), []);
+export default function ThemeToggle() {
+  const { theme, resolvedTheme, forcedTheme, setTheme } = useTheme();
+  const mounted = useSyncExternalStore(subscribe, getClientSnapshot, getServerSnapshot);
 
   if (!mounted) {
     return <span style={{ width: 42, height: 42, display: "inline-block" }} />;
   }
 
-  const isDark = theme === "dark";
+  const isDark = (forcedTheme ?? resolvedTheme ?? theme) === "dark";
 
   return (
     <button
+      type="button"
       className="theme-toggle"
+      disabled={Boolean(forcedTheme)}
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={isDark ? "Kalo në light mode" : "Kalo në dark mode"}
       title={isDark ? "Light mode" : "Dark mode"}

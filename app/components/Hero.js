@@ -1,43 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useVelocity,
-  useSpring,
-  useMotionValue,
-  useAnimationFrame,
-  useReducedMotion,
-} from "motion/react";
+import { useInView } from "motion/react";
 import Counter from "./Counter";
 import MagneticButton from "./MagneticButton";
 
-const EASE = [0.22, 1, 0.36, 1];
-
 const BP = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
-};
-const item = {
-  hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
-  show: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.85, ease: EASE },
-  },
-};
-
-/* Stagger i titullit — fjalë-pas-fjale me mask reveal */
-const titleStagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.3 } },
-};
 
 const MARQUEE = [
   "Betoforme",
@@ -49,155 +18,57 @@ const MARQUEE = [
   "Tjegulla",
 ];
 
-/* Rrotullim ciklik i vlerës në intervalin [min, max) */
-const wrap = (min, max, v) => {
-  const range = max - min;
-  return ((((v - min) % range) + range) % range) + min;
-};
-
-/* Fjalë e maskuar që zbulohet poshtë-lart me një rrotullim të lehtë */
 function MaskWord({ children, em = false }) {
-  return (
-    <span
-      style={{
-        display: "inline-block",
-        overflow: "hidden",
-        verticalAlign: "top",
-        paddingBottom: "0.12em",
-        marginBottom: "-0.12em",
-      }}
-    >
-      <motion.span
-        style={{
-          display: "inline-block",
-          willChange: "transform",
-          transformOrigin: "0% 100%",
-        }}
-        variants={{
-          hidden: { y: "112%", rotate: 3 },
-          show: {
-            y: "0%",
-            rotate: 0,
-            transition: { duration: 0.95, ease: EASE },
-          },
-        }}
-      >
-        {em ? <em>{children}</em> : children}
-      </motion.span>
-    </span>
-  );
+  return <span style={{ display: "inline-block" }}>{em ? <em>{children}</em> : children}</span>;
 }
 
-/* Marquee që reagon me shpejtësinë e scroll-it (velocity) + pauzë në hover */
-function VelocityMarquee() {
-  const baseX = useMotionValue(0);
-  const trackRef = useRef(null);
-  const halfWidth = useRef(0);
-  const [paused, setPaused] = useState(false);
-  const reduced = useReducedMotion();
-
-  const { scrollY } = useScroll();
-  const velocity = useVelocity(scrollY);
-  const smooth = useSpring(velocity, { damping: 50, stiffness: 400 });
-  const boost = useTransform(smooth, [0, 1200], [0, 3.5]);
-  const skewX = useTransform(smooth, [-1400, 0, 1400], [2, 0, -2]);
-
-  useEffect(() => {
-    const measure = () => {
-      if (trackRef.current) halfWidth.current = trackRef.current.scrollWidth / 2;
-    };
-    measure();
-    const t = setTimeout(measure, 1000); // rimat pas ngarkimit të fonteve/imazheve
-    window.addEventListener("resize", measure);
-    return () => {
-      clearTimeout(t);
-      window.removeEventListener("resize", measure);
-    };
-  }, []);
-
-  useAnimationFrame((_, delta) => {
-    if (paused || reduced || !halfWidth.current) return;
-    const d = Math.min(delta, 50);
-    const px = 1.5 * (d / 16.67) * (1 + Math.abs(boost.get()));
-    const pct = (px / halfWidth.current) * 100;
-    baseX.set(wrap(-50, 0, baseX.get() - pct));
-  });
-
-  const x = useTransform(baseX, (v) => `${v}%`);
-
+function ProductMarquee() {
+  const ref = useRef(null);
+  const visible = useInView(ref);
   return (
-    <div
-      className="marquee"
-      aria-hidden="true"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
-      <motion.div className="marquee-track" ref={trackRef} style={{ x, skewX }}>
+    <div className="marquee" ref={ref} aria-hidden="true">
+      <div className="marquee-track" style={{ animationPlayState: visible ? "running" : "paused" }}>
         {[...MARQUEE, ...MARQUEE].map((m, i) => (
-          <span className="marquee-item" key={i}>
-            {m} <i>✦</i>
-          </span>
+          <span className="marquee-item" key={i}>{m} <i>✦</i></span>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }
 
 export default function Hero() {
-  const reduced = useReducedMotion();
-
-  const { scrollYProgress } = useScroll({ offset: ["start start", "end start"] });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-
   return (
     <section className="hero" id="kryefaqja">
-      {/* Ken Burns i butë (scale settle) + parallax në scroll */}
-      <motion.div
-        style={{ position: "absolute", inset: 0, zIndex: 0 }}
-        initial={{ scale: 1.18, opacity: 0.55 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 2.4, ease: EASE }}
-      >
-        <motion.div className="hero-bg" style={{ y: bgY, scale: bgScale }}>
+      <div className="hero-bg">
           <Image
             src={BP + "/images/hero-lumber.jpg"}
             alt="Lëndë druri — pirg dërrasash"
             fill priority sizes="100vw"
             style={{ objectFit: "cover", objectPosition: "center" }}
           />
-        </motion.div>
-      </motion.div>
+      </div>
       <div className="hero-overlay" />
 
-      <motion.div
-        className="container hero-inner"
-        style={{ y: textY, opacity: textOpacity }}
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        <motion.span className="hero-eyebrow" variants={item}>
+      <div className="container hero-inner">
+        <span className="hero-eyebrow">
           Furnizim lënde druri — betoforme · binarë · dërrasa
-        </motion.span>
+        </span>
 
-        <motion.h1 variants={titleStagger}>
+        <h1>
           <MaskWord>Lëndë{"\u00A0"}</MaskWord>
           <MaskWord em>druri</MaskWord>
           <br />
           <MaskWord>për{"\u00A0"}ndërtim{"\u00A0"}</MaskWord>
           <MaskWord>dhe{"\u00A0"}</MaskWord>
           <MaskWord>marangozëri.</MaskWord>
-        </motion.h1>
+        </h1>
 
-        <motion.p className="lead" variants={item}>
+        <p className="lead">
           Betoforme, binarë, trarë dhe dërrasa për kantierin ose punishten tuaj.
           Na tregoni materialin, përmasat dhe sasinë që ju nevojitet për të marrë një ofertë.
-        </motion.p>
+        </p>
 
-        <motion.div className="hero-actions" variants={item}>
+        <div className="hero-actions">
           <MagneticButton
             href="https://wa.me/355682006400?text=P%C3%ABrsh%C3%ABndetje!%20D%C3%ABshiroj%20nj%C3%AB%20ofert%C3%AB%20p%C3%ABr%20l%C3%ABnd%C3%AB%20druri."
             target="_blank"
@@ -214,9 +85,9 @@ export default function Hero() {
             Shiko produktet
             <span className="btn-ico">↓</span>
           </MagneticButton>
-        </motion.div>
+        </div>
 
-        <motion.div className="hero-stats" variants={item}>
+        <div className="hero-stats">
           <div className="hero-stat">
             <div className="num"><Counter value={15} suffix="+" /></div>
             <div className="label">Vite eksperiencë</div>
@@ -229,22 +100,17 @@ export default function Hero() {
             <div className="num">100%</div>
             <div className="label">Lëndë e garantuar</div>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
-      <motion.div
-        className="hero-meta"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.1, duration: 0.8 }}
-      >
+      <div className="hero-meta">
         <span>41.3076°N / 19.7575°E</span>
         <span>SH56 · Vaqarr · Tiranë</span>
         <span>Hënë–Shtunë 08:00–17:00</span>
         <a href="tel:+355682006400">Tel +355 68 200 6400</a>
-      </motion.div>
+      </div>
 
-      <VelocityMarquee />
+      <ProductMarquee />
     </section>
   );
 }
